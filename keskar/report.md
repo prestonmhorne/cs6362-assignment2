@@ -14,7 +14,7 @@ $$ x_{k+1} = x_k - \eta_k \frac{1}{|B_k|}\sum_{i\in B_k}\nabla f_i(x_k). $$
 
 In the paper, *small-batch* (SB) means $|B_k| = 256$ and *large-batch* (LB) means $|B_k| = 0.1M$. Both use ADAM.
 
-**Claim.** LB methods reach similar training loss but worse test accuracy (a *generalization gap*, Table 2). The authors attribute this to LB converging to **sharp minimizers**, where $f$ rises steeply in some directions (large positive eigenvalues of $\nabla^2 f$). SB tends to reach **flat minimizers**, where $f$ varies slowly over a wide neighbourhood. The intuition: a flat minimizer can be described with low precision (MDL argument). Fig. 1 also sketches the test function as a shifted copy of the training function, so a shift costs little at a flat minimum and a lot at a sharp one. The explanation offered for why SB ends up flat: minibatch gradient noise (whose variance, in our gloss, scales as $1/|B_k|$) pushes the iterate out of narrow basins.
+**Claim.** LB methods reach similar training accuracy but worse test accuracy (a *generalization gap*, Table 2). The authors attribute this to LB converging to **sharp minimizers**, where $f$ rises steeply in some directions (large positive eigenvalues of $\nabla^2 f$). SB tends to reach **flat minimizers**, where $f$ varies slowly over a wide neighbourhood. The intuition: a flat minimizer can be described with low precision (MDL argument). Fig. 1 also sketches the test function as a shifted copy of the training function, so a shift costs little at a flat minimum and a lot at a sharp one. The explanation offered for why SB ends up flat: minibatch gradient noise (whose variance, in our gloss, scales as $1/|B_k|$) pushes the iterate out of narrow basins.
 
 **Figure 3 (what we reproduce).** Let $x_s^\star$ and $x_\ell^\star$ be the SB and LB solutions. The *parametric plot* evaluates the loss and accuracy along the line through both points:
 
@@ -51,7 +51,7 @@ $\phi_{x,f}(\epsilon) = \frac{\max_{y\in\mathcal{C}_\epsilon} f(x+y) - f(x)}{1+f
 
 **LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript instead: [`llm_transcript.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/keskar/llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/keskar (`phase1.py`, `phase3.py`, notebook `reproduce_figure3.ipynb`).
 
-*Original (paper Fig. 3: F1, F2, C1, C2):*
+*Original (paper Fig. 3, panels a–d: F1, F2, C1, C2; panels e–f, C3/C4, not shown):*
 
 ![original](original_figure3.png)
 
@@ -69,7 +69,7 @@ $\phi_{x,f}(\epsilon) = \frac{\max_{y\in\mathcal{C}_\epsilon} f(x+y) - f(x)}{1+f
 
 (The paper reports a distance ratio of 3–10.)
 
-These accuracies use BN statistics recomputed on the training set, as in our curves. For C1 and C2, with each model's own running BN statistics (standard eval mode), test accuracy is 1.6–3.9 points lower and train accuracy 94.5–98.8%: C1 76.95 / 73.24 (SB / LB test), C2 81.61 / 80.03. F1 is essentially unchanged (98.36 / 98.61 vs 98.37 / 98.61). The SB–LB gap keeps its sign either way (C1 3.7 points, C2 1.6 points).
+These accuracies use BN statistics recomputed on the training set, as in our curves. For C1 and C2, with each model's own running BN statistics (standard eval mode), test accuracy is 1.6–3.9 points lower and train accuracy 94.5–98.8%: C1 76.95 / 73.24 (SB / LB test), C2 81.61 / 80.03 (the C2 LB running statistics are affected by the checkpointing side effect noted in Phase 3). F1 is essentially unchanged (98.36 / 98.61 vs 98.37 / 98.61). The SB–LB gap keeps its sign either way (C1 3.7 points, C2 1.6 points).
 
 **What matches.**
 - In every panel, loss and error rise much more steeply on the LB side (α > 1) than on the SB side (α < 0). That is the paper's sharpness signature.
@@ -84,18 +84,18 @@ These accuracies use BN statistics recomputed on the training set, as in our cur
 
 ### Phases, failures and corrections
 **Phase 1** (`phase1.py`). The LLM's setup summary was correct (panels, α range, axes, batch sizes, ADAM). As the prompt asked, it addressed both choices explicitly, picking shared init and BN recompute. Problems we found in Phase 2 with full F1/C1 runs:
-1. *Fixed 100-epoch training.* C1's training loss was still falling at epoch 100 (running minibatch loss over epochs 75–100: SB 0.099→0.076, LB 0.129→0.058), which violates "train until the loss stops improving". Train accuracy with running BN statistics (SB 97.8%, LB 96.8%) stayed below Table 2 (99.89%, 99.66%).
-2. *C1 downsampling read literally.* By the paper's own notation (B.3: "[a, b, c, d]" with "stride length of d"), the LLM read the layer spec "[64, 5, 5, 2]" as conv stride 2, plus a stride-2 pool, twice. That collapses 32×32 to 2×2, so only a 256-d feature reaches the FC-384 layer. Result: C1 test accuracy of 69.5% vs the paper's 80.0%.
+1. *Fixed 100-epoch training.* C1's running minibatch training loss was still falling at epoch 100 (over epochs 75–100: SB 0.099→0.076, LB 0.129→0.058), which violates "train until the loss stops improving". Train accuracy with running BN statistics (SB 97.8%, LB 96.8%) stayed below Table 2 (99.89%, 99.66%).
+2. *C1 downsampling read literally.* By the paper's own notation (B.3: "[a, b, c, d]" with "stride length of d"), the LLM read the layer spec "[64, 5, 5, 2]" as conv stride 2, plus a stride-2 pool, twice. That collapses 32×32 to 2×2, so only a 256-d feature reaches the FC-384 layer. Result: C1 test accuracy of 69.5% (running BN statistics; 70.7% recomputed) vs the paper's 80.0%.
 3. One pair, one seed. Accepted (the figure itself shows one pair).
 
 **Phase 3** (`phase3.py`, same chat). Changes we asked for:
 - A patience-based stopping rule (1% relative improvement, patience 10).
-- A second C1 variant (`alexnet`: stride-1 convs, 3×3 stride-2 pools, 4096-d flatten). Both C1 variants were trained.
+- A reconsidered C1 reading, with a flag to run both. The LLM proposed the `alexnet` variant (stride-1 convs, 3×3 stride-2 pools, 4096-d flatten). Both C1 variants were trained.
 
 Results:
 - The `alexnet` variant fixed C1: test accuracy 80.2% vs 69–71% for the original reading.
 - The LLM based the variant mainly on the over-downsampling and AlexNet's overlapping 3×3 stride-2 pooling ("modified AlexNet"). It also checked the pooling convention implied by B.4 (MaxPool(k) with stride k) and found it no help, since it would shrink the flatten further, to 64-d. It also cited, as a hint rather than evidence, a remembered CIFAR-10 reference net with 384/192 FC layers; we disclose it here as LLM prior knowledge.
-- The LLM also found and reported a side effect in its own code: gradient checkpointing (used only for the memory-hungry C2 LB run) updates BN running stats twice per step. This affects only the C2 LB model's running statistics, i.e. its native-stats numbers (and the C2 run of the interpolated-statistics ablation below), not the main curves, because BN is recomputed at every α.
+- The LLM also found and reported a side effect in its own code: gradient checkpointing (used only for the memory-hungry C2 LB run) updates BN running stats twice per step. This affects only the C2 LB model's running statistics, i.e. its native-stats numbers, its stopping-rule loss (the rule never triggered and the run went to the 40-epoch cap; with correctly updated statistics it might have stopped at a different epoch) and the C2 run of the interpolated-statistics ablation below, not the main curves, because BN is recomputed at every α.
 
 **Mistake in our own review.** In Phase 3 we wrote that the paper's curves are "smooth and monotone" between α = 0 and 1, and that our bump at α≈0.85 was a mismatch. At higher zoom the paper's C1, C2 (and F2, C3, C4) panels show the same bump. We corrected this in Phase 4.
 
@@ -103,9 +103,9 @@ Results:
 Phase 3 code and results were committed (by 674bce2) before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/commit_history.md). Full comparison: `phase4.md`.
 - **Confirms our choices:** shared initialization (`x0.h5`); ADAM with default lr; SB 256 / LB 5000; /255 scaling and no augmentation; $\alpha \in [-1, 2]$.
 - **C1:** exactly our Phase 3 `alexnet` variant, i.e. the LLM's corrected reading.
-- **BatchNorm `mode=2`** (batch statistics at test time) ≈ our recompute.
+- **BatchNorm `mode=2`** (batch statistics at test time) ≈ our recompute on the training set (the test curves differ: mode 2 normalizes with test-batch statistics).
 - **Discrepancies:**
-  - Their C2 has dropout (0.3/0.4) after most conv layers; ours doesn't. Appendix B.4 doesn't mention it. We did not retrain with conv dropout. Adding it would mean new model code, and we kept to the rule of using only the LLM chat's code during Phases 1–3. Their C2 also has dropout 0.5 before the first FC layer; ours has dropout only after FC 512. So this is reported, not tested.
+  - Their C2 has dropout (0.3/0.4) after most conv layers; ours doesn't. Appendix B.4 doesn't mention it. Their C2 also has dropout 0.5 before the first FC layer; ours has dropout only after FC 512. We did not retrain with either dropout. Adding either would mean new model code, and we kept to the rule of using only the LLM chat's code during Phases 1–3. So both differences are reported, not tested.
   - The released script trains a fixed 20 epochs, which contradicts the paper's "until the loss function ceased to improve".
   - The paper says the plotted pair comes "from the 5 trials" (suggesting independent inits), but the released code shares the init.
   - Grid: 25 α points vs our 61.
@@ -122,7 +122,7 @@ No code changes were made after Phase 4. The diagnostics below only re-run the u
 
 Interpolated statistics also give NaN for all α > 1 in every panel, and in C2 also for α < −0.25, because the extrapolated variances go negative.
 
-So the BN choice decides whether the figure looks like the paper's. Recomputing (≈ the authors' mode-2 BN) gives barrier heights between the minimizers close to the paper's (C1 0.68 vs ≈0.85, C2 1.57 vs ≈1.7); interpolating inflates them several-fold and can't draw the α > 1 half at all. The barrier that remains with recomputed statistics is a real non-convexity, as in the paper.
+So the BN choice decides whether the figure looks like the paper's. Recomputing (close to the authors' mode-2 BN on training data) gives barrier heights between the minimizers close to the paper's (C1 0.68 vs ≈0.85, C2 1.57 vs ≈1.7); interpolating inflates them several-fold and can't draw the α > 1 half at all. The barrier that remains with recomputed statistics is a real non-convexity, as in the paper.
 
 **Remaining mismatch (LB-side heights for F1/C1): two hypotheses tested after Phase 4.** We ran the unchanged `phase3.py` with different flags only (`diagnostics_queue.sh`; outputs in `diag_20ep/`, `diag_F1_seed1/`, `diag_F1_seed2/`, logs `diag_*.log`). Recomputed BN throughout. The paper's LB side reaches ≈11 (F1, α = 2) and ≈7.5 (C1).
 
@@ -136,7 +136,7 @@ So the BN choice decides whether the figure looks like the paper's. Recomputing 
 | C1, fixed 20 epochs | 20 / 20 | 2.74 (1.50) | 2.64 | +2.73 |
 
 - *Fixed 20-epoch training (the authors' code):* refuted as the cause. It makes the LB side **lower**, not higher (F1 4.90 → 3.53, C1 5.16 → 2.74), moving away from the paper. The C1 gap survives (2.7 points), but the 20-epoch LB model is not fully fit (92.2% train accuracy).
-- *Run-to-run variation:* refuted as the cause of the heights. All three F1 seeds peak at 4.8–5.0 between α = 1.2 and 1.5 and then fall, so the peak-then-fall shape is systematic, not one unlucky pair. The F1 generalization gap, however, is within seed noise: its sign flips across seeds (−0.24, +0.32, −0.19), and the paper's 0.22 lies inside that range.
+- *Run-to-run variation (F1 only):* refuted as the cause of the F1 heights; C1 was not re-seeded. All three F1 seeds peak at 4.8–5.0 between α = 1.2 and 1.5 and then fall, so the peak-then-fall shape is systematic, not one unlucky pair. The F1 generalization gap, however, is within seed noise: its sign flips across seeds (−0.24, +0.32, −0.19), and the paper's 0.22 lies inside that range.
 - *Still untested:* C2's conv dropout (not relevant to F1/C1). Since longer training raised the LB side in both panels, a setting that drives LB further into its basin (e.g. a different, unstated learning rate) may account for the rest. This is a hypothesis; we did not test it.
 
 ### Disclosures
@@ -152,15 +152,15 @@ So the BN choice decides whether the figure looks like the paper's. Recomputing 
 
 **Strengths.**
 - It tests folk wisdom on six networks and four datasets and rules out ordinary overfitting (Fig. 2).
-- The core observation reproduces: C1 test accuracy of 80.2/77.0 (SB/LB) vs the paper's 80.0/77.3. The LB side is steeper in every panel, and SB ends 3.4–6.1× farther from initialization (seed 0; paper: 3–10).
+- The core observation reproduces: C1 test accuracy of 80.2/77.0 (SB/LB) vs the paper's 80.0/77.3. The LB side is steeper in every panel, and SB ends 3.4–6.1× farther from initialization (seed 0; F1 seeds 1–2: 11.7, 6.7; paper: 3–10).
 
 **Weaknesses.**
-1. *The causal claim is unsupported.* The paper moves from "is correlated with" (introduction) to "due to" (boxed main observation), but shows only loose correlation. In Table 3 ($\epsilon = 10^{-3}$), F1's LB solution is ≈170× sharper than SB's with a 0.22-point gap; C1's is ≈25× sharper with a 2.8-point gap. With augmentation (Table 6), LB is at most ≈1.5 points below SB on all four CIFAR networks (and above it on C2 and C4) but stays sharp (100–470 vs SB's 9–30 in Table 3). Across three F1 seeds the LB side is always steeper, yet LB tests better in two (by 0.24 and 0.19 points).
+1. *The causal claim is unsupported.* The paper moves from "is correlated with" (introduction) to "due to" (boxed main observation), but shows only loose correlation. In Table 3 ($\epsilon = 10^{-3}$), F1's LB solution is ≈170× sharper than SB's with a 0.22-point gap; C1's is ≈25× sharper with a 2.8-point gap. With augmentation (Table 6), LB is at most ≈1.5 points below SB on all four CIFAR networks (and above it on C2 and C4) but stays sharp (100–470, vs 9–30 for unaugmented SB in Table 3; the paper gives no augmented-SB sharpness). Across three F1 seeds the LB side is always steeper, yet LB tests better in two (by 0.24 and 0.19 points).
 2. *Batch size is confounded with update count.* The paper gives no learning rate; the released code, like ours, uses the same ADAM default for both regimes, so LB takes ≈20× fewer steps per epoch. Our C1 SB run made ≈6.9k updates, LB 600. The paper never varies the learning rate and never separates batch size from the number of updates (Fig. 4 varies batch size at a fixed 100 epochs). Hoffer et al. (2017) attribute most of the gap to LB's fewer updates.
 3. *Sharpness depends on weight scale.* Rescaling ReLU layers can make a minimum arbitrarily sharp or flat without changing the function (Dinh et al., 2017). With BatchNorm, used in every network here, the loss is invariant to the scale of the weights feeding into each BN layer, so the curvature with respect to those weights depends on their norm. The paper reports no weight norms.
 
 **Potential errors.**
-4. *Fig. 3 depends on an unstated BatchNorm choice.* Re-evaluating our saved weights with interpolated instead of recomputed BN statistics raised peak train loss between the minimizers from 0.68 to 2.71 in C1, 1.57 to 9.68 in C2 (chance accuracy) and 0.011 to 0.38 in F1. Every α > 1 gave NaN, so the LB side could not be drawn. The paper never says which it used; the released code's Keras `mode=2` roughly matches our recompute. Fig. 3 also probes only one line through the two solutions.
+4. *Fig. 3 depends on an unstated BatchNorm choice.* Re-evaluating our saved weights with interpolated instead of recomputed BN statistics raised peak train loss between the minimizers from 0.68 to 2.71 in C1, 1.57 to 9.68 in C2 (chance accuracy) and 0.011 to 0.38 in F1. Every α > 1 gave NaN, so the LB side could not be drawn. The paper never says which it used; the released code's Keras `mode=2` roughly matches our recompute on the training set (test-set normalization differs). Fig. 3 also probes only one line through the two solutions.
 5. *Reproducibility gaps.* No ADAM settings are given, and "until the loss function ceased to improve" conflicts with the code's fixed 20 epochs. The C1 spec "[64, 5, 5, 2]" (conv stride 2 by the paper's own notation) contradicts the authors' code; the literal reading cost us ≈9 test-accuracy points (71.0 vs 80.2). C2's conv dropout is in the code but not the paper, and is a plausible (untested) contributor to our 3.7/5.6-point C2 shortfall.
 
 **Overall.** The observation is real and reproducible, but the mechanism is not established. We would accept it as an empirical paper, with "due to" weakened to "correlated with", an update-budget control, and BN handling stated.
