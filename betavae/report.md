@@ -63,13 +63,17 @@ Row 1 shows the mean activation $\mu_j$ as a 32×32 map over (pos x, pos y), ave
 ### Original and reproduced figures
 
 *Original (A: β-VAE, β=4; B: VAE, β=1):*
+
 ![original](original_figure7AB.png)
 
 *Reproduction, seed 0 (β=4, then β=1). Seed 0 was fixed before training, not selected. All six figures are in `phase1_runs/beta*_seed*/fig7.png` and the notebook. In our figures the overlapping title hides some column labels (a cosmetic bug in the LLM's plotting code); the latent order is in each run's `metrics.json`:*
+
 ![beta4](phase1_runs/beta4_seed0/fig7.png)
+
 ![beta1](phase1_runs/beta1_seed0/fig7.png)
 
 *β=4, seed 2: the run closest to the paper's Fig. 7A:*
+
 ![beta4 seed2](phase1_runs/beta4_seed2/fig7.png)
 
 ### Summary over seeds
@@ -77,7 +81,7 @@ Row 1 shows the mean activation $\mu_j$ as a 32×32 map over (pos x, pos y), ave
 The table below is taken from `phase1_runs/summary_all_runs.csv`.
 
 | β | seed | recon NLL, sampled z (nats) | total KL | active latents | qualitative reading of fig7.png |
-|---|---|---|---|---|---|
+|--|--|---|---|---|----------------|
 | 4 | 0 | 65.50 | 11.58 | 5 | Y and rotation clean; X mixed with rotation/scale; scale split across two latents mixed with position |
 | 4 | 1 | 61.40 | 12.03 | 5 | only scale (z3) fairly clean; the other four mix position, scale and rotation |
 | 4 | 2 | 70.69 | 11.16 | 5 | **rotation in its own clean latent; Y and X each dominate one latent** (clean response curves, though their ±3 traversals also enlarge or reshape the object and X drifts in Y); **scale largely in its own latent** (flat in rotation, but its position map is bowl-shaped); z6 mixes scale and rotation (paper: a second rotation latent) |

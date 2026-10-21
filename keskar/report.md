@@ -28,7 +28,7 @@ $\phi_{x,f}(\epsilon) = \frac{\max_{y\in\mathcal{C}_\epsilon} f(x+y) - f(x)}{1+f
 **Networks and data for our panels** (Table 1, Appendix B):
 
 | Panel | Data | Network |
-|---|---|---|
+|--|---|--------------|
 | F1 | MNIST | fully connected, 5 hidden layers of 512 with BN + ReLU, softmax output (B.1) |
 | C1 | CIFAR-10 | shallow "modified AlexNet": two [conv 5×5, 64 ch (paper: stride 2) → BN → ReLU → MaxPool(3)] blocks, then FC 384 → FC 192 → 10, with BN and dropout 0.5 (B.3; the authors' code uses stride-1 convs and 3×3 stride-2 pools, see Phase 4) |
 | C2 | CIFAR-10 | deep VGG-like: 64,64,M,128,128,M,256×3,M,512×3,M,512×3,M (3×3 convs, BN), FC 512 → 10 (B.4, which says "C3" by typo) |
@@ -52,9 +52,11 @@ $\phi_{x,f}(\epsilon) = \frac{\max_{y\in\mathcal{C}_\epsilon} f(x+y) - f(x)}{1+f
 **LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript instead: [`llm_transcript.md`](llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/keskar (`phase1.py`, `phase3.py`, notebook `reproduce_figure3.ipynb`).
 
 *Original (paper Fig. 3: F1, F2, C1, C2):*
+
 ![original](original_figure3.png)
 
 *Our reproduction (Phase 3). Panel c (labelled "C1 (collapse)"; panel b's "alexnet" is the corrected reading) is the Phase 1 reading of the C1 architecture, retrained in Phase 3 with the same stopping rule and kept as an ablation:*
+
 ![reproduction](phase3_runs/figure3_reproduction.png)
 
 **Endpoint accuracies (BN recomputed; Table 2 of the paper in brackets):**
@@ -153,7 +155,7 @@ So the BN choice decides whether the figure looks like the paper's. Recomputing 
 - The core observation reproduces: C1 test accuracy of 80.2/77.0 (SB/LB) vs the paper's 80.0/77.3. The LB side is steeper in every panel, and SB ends 3.4–6.1× farther from initialization (seed 0; paper: 3–10).
 
 **Weaknesses.**
-1. *The causal claim is unsupported.* The paper moves from "is correlated with" (introduction) to "due to" (boxed main observation), but shows only loose correlation. In Table 3 (ε = 10⁻³), F1's LB solution is ≈170× sharper than SB's with a 0.22-point gap; C1's is ≈25× sharper with a 2.8-point gap. With augmentation (Table 6), LB comes within ≈1.5 points of SB on all four CIFAR networks but stays sharp (100–470 vs SB's 9–30 in Table 3). Across three F1 seeds the LB side is always steeper, yet LB tests better in two (by 0.24 and 0.19 points).
+1. *The causal claim is unsupported.* The paper moves from "is correlated with" (introduction) to "due to" (boxed main observation), but shows only loose correlation. In Table 3 ($\epsilon = 10^{-3}$), F1's LB solution is ≈170× sharper than SB's with a 0.22-point gap; C1's is ≈25× sharper with a 2.8-point gap. With augmentation (Table 6), LB comes within ≈1.5 points of SB on all four CIFAR networks but stays sharp (100–470 vs SB's 9–30 in Table 3). Across three F1 seeds the LB side is always steeper, yet LB tests better in two (by 0.24 and 0.19 points).
 2. *Batch size is confounded with update count.* The paper gives no learning rate; the released code, like ours, uses the same ADAM default for both regimes, so LB takes ≈20× fewer steps per epoch. Our C1 SB run made ≈6.9k updates, LB 600. The paper varies neither the learning rate nor the update budget. Hoffer et al. (2017) attribute most of the gap to LB's fewer updates.
 3. *Sharpness depends on weight scale.* Rescaling ReLU layers can make a minimum arbitrarily sharp or flat without changing the function (Dinh et al., 2017). With BatchNorm, used in every network here, the loss is invariant to the scale of preceding weights, so their curvature depends on their norm. The paper reports no weight norms.
 
@@ -169,7 +171,7 @@ The paper was accepted as an oral. The official ratings were 8 (R1), 10 (R2) and
 
 **Where we agree.** All reviewers find the observation real and useful. R3 asked whether the solutions are true minima or only minima "of one-dimensional slices". The authors agreed and said they would write "LB solution" and "SB solution" instead. This is the one-line concern in our point 4. R2 asked whether the metric is scale invariant under f → c·f, and the authors dropped that claim. This is related to our point 3 but narrower. R2 was concerned with rescaling the loss; we are concerned with rescaling the weights, which dropping the claim does not address.
 
-**What they raised that we didn't.** R3 suggested gradient noise, and Alex Lamb asked whether it can replace small batches. The authors said Gaussian noise in gradients or iterates, noisy labels and noisy inputs gave no consistent improvement. This negative result counts against the paper's noise mechanism, but it is not in the paper. In a public comment, Amir Abdi (2019) also found a wrong legend value in Fig. 5 (5E-3 for 5·10⁻⁴) and a problem in Appendix C's parallel-efficiency assumption.
+**What they raised that we didn't.** R3 suggested gradient noise, and Alex Lamb asked whether it can replace small batches. The authors said Gaussian noise in gradients or iterates, noisy labels and noisy inputs gave no consistent improvement. This negative result counts against the paper's noise mechanism, but it is not in the paper. In a public comment, Amir Abdi (2019) also found a wrong legend value in Fig. 5 (5E-3 for $5\cdot10^{-4}$) and a problem in Appendix C's parallel-efficiency assumption.
 
 **What we raised that they didn't.** The update-count confound (point 2), the loose link between sharpness and the gap in Tables 3 and 6 (point 1), the BN dependence of Fig. 3 shown by our ablation (point 4), and the reproducibility gaps (point 5).
 

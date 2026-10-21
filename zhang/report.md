@@ -54,9 +54,11 @@ $\sigma_i \in \{\pm1\}$ uniform, for binary $\pm1$-valued $h$), possibly helped 
 **LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript ([`llm_transcript.md`](llm_transcript.md)) instead. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/zhang (`phase1.py`, `phase3.py`, notebook `reproduce_figure1.ipynb`).
 
 *Original:*
+
 ![original](original_figure1.png)
 
 *Reproduction:*
+
 ![reproduction](phase3_runs/figure1.png)
 
 **(a)**
