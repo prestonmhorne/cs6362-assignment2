@@ -103,7 +103,7 @@ With change 2, panel (b) resolves for every run at threshold 0.98.
 - Panel (a) random pixels vs Gaussian: the 200-step rolling-mean smoothing can't explain a ~5k-step shift, so we checked the logs. Our random-pixels Inception run has **34.9% test accuracy** (test error 65.1%), far above chance. Gaussian sits at chance (10.0%). A per-image pixel permutation destroys spatial structure but keeps each image's colour histogram, which likely still carries class information (we did not test a histogram-only baseline). So random pixels are a *partly learnable* task, with an immediate drop in loss and no ln 10 plateau, unlike Gaussian inputs. Why the paper's curve differs (it shows the two nearly coinciding) is untested; its random-pixel construction may differ in a detail the text doesn't state.
 
 ### Phase 4
-Phase 3 code (0e0629a) and results (674bce2) were committed before Phase 4 (63069f7).
+Phase 3 code (0e0629a) and results (674bce2) were committed before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](../commit_history.md) for the commit dates and a content-hash check that the code here is unchanged.
 
 The authors never released the paper's code; the first author says it belongs to Google. The first author's demo repo, https://github.com/pluskid/fitting-random-labels, was written later from scratch with a WideResNet and an MLP (comparison in `phase4.md`). It agrees with ours on how labels are corrupted (fixed seed, uniform over all classes) and fixed across epochs. It differs from the paper (and from us) in ways where we follow the paper:
 - weight decay 1e-4;

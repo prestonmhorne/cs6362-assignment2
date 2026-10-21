@@ -100,7 +100,7 @@ Results:
 **Mistake in our own review.** In Phase 3 we wrote that the paper's curves are "smooth and monotone" between α = 0 and 1, and that our bump at α≈0.85 was a mismatch. At higher zoom the paper's C1, C2 (and F2, C3, C4) panels show the same bump. We corrected this in Phase 4.
 
 ### Phase 4: the authors' code (https://github.com/keskarnitish/large-batch-training)
-Phase 3 code and results were committed (by 674bce2) before Phase 4. Full comparison: `phase4.md`.
+Phase 3 code and results were committed (by 674bce2) before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](../commit_history.md). Full comparison: `phase4.md`.
 - **Confirms our choices:** shared initialization (`x0.h5`); ADAM with default lr; SB 256 / LB 5000; /255 scaling and no augmentation; $\alpha \in [-1, 2]$.
 - **C1:** exactly our Phase 3 `alexnet` variant, i.e. the LLM's corrected reading.
 - **BatchNorm `mode=2`** (batch statistics at test time) ≈ our recompute.

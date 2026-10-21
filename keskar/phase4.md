@@ -1,4 +1,4 @@
-# Phase 4: comparison with the authors' code (done after Phase 3 was committed, 674bce2)
+# Phase 4: comparison with the authors' code (done after Phase 3 was committed, 674bce2 in our private working repo; see ../commit_history.md)
 
 Authors' repo: https://github.com/keskarnitish/large-batch-training (linked in the paper's footnote 1).
 - `plot_parametric_plot.py` + `network_zoo.py`: Keras 1 / Theano, networks C1–C4. This is what we compare against.

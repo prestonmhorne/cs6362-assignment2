@@ -127,7 +127,7 @@ We trained seeds 1 and 2 for both β with the **unchanged** Phase 1 code (`--see
 
 We found no code release from the authors; DeepMind's `dsprites-dataset` repo has only the dataset and a loading notebook. So there was nothing to compare against and nothing was changed (`phase4.md`). We checked our dataset handling against the official repo: same file, keys and factor sizes (1, 3, 6, 40, 32, 32).
 
-`phase4.md` was written and committed (63069f7) before the Phase 3 seed results were committed (1eb1dd4). That ordering is harmless here: no authors' code exists, and Phase 3 reuses the committed Phase 1 code unchanged (`phase1.py` is identical in both commits).
+`phase4.md` was written and committed (63069f7) before the Phase 3 seed results were committed (1eb1dd4); these hashes refer to our private working repo (see [`commit_history.md`](../commit_history.md)). That ordering is harmless here: no authors' code exists, and Phase 3 reuses the committed Phase 1 code unchanged (`phase1.py` is identical in both commits).
 
 ### Does the evidence support the claim? Would larger β help?
 

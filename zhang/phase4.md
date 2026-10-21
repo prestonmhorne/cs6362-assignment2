@@ -1,4 +1,4 @@
-# Phase 4: comparison with an existing implementation (done after Phase 3 was committed, 674bce2)
+# Phase 4: comparison with an existing implementation (done after Phase 3 was committed, 674bce2 in our private working repo; see ../commit_history.md)
 
 ## What exists
 - The authors never released the code behind the paper. The first author (Chiyuan Zhang, GitHub `pluskid`) says in
