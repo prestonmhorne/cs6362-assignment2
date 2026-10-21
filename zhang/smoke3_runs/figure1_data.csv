@@ -1,0 +1,3 @@
+arch,p,steps_run,cross_step,rel_time,censored_b,test_err,train_err,converged_c
+inception,0.0,600,300,1.0,False,0.4291,0.0,True
+inception,1.0,600,400,1.3333333333333333,False,0.9018,0.0,True

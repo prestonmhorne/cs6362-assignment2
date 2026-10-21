@@ -1,0 +1,188 @@
+device=mps jobs=9 (5 panel-(a) runs, never early-stopped) max_steps=25000 tau=0.05 early_stop(other runs)=True batch=128
+[1/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.0, 'panel_a': True}
+    step   1000  win-loss 0.5820  lr 0.09025       55s
+    step   2000  win-loss 0.3524  lr 0.07738      154s
+    step   3000  win-loss 0.1590  lr 0.06983      220s
+    step   4000  win-loss 0.0777  lr 0.05987      291s
+    step   5000  win-loss 0.0105  lr 0.05404      391s
+    step   6000  win-loss 0.0019  lr 0.04633      491s
+    step   7000  win-loss 0.0011  lr 0.04181      604s
+    step   8000  win-loss 0.0007  lr 0.03585      718s
+    step   9000  win-loss 0.0006  lr 0.03074      831s
+    step  10000  win-loss 0.0005  lr 0.02774      967s
+    step  11000  win-loss 0.0005  lr 0.02378     1115s
+    step  12000  win-loss 0.0004  lr 0.02146     1260s
+    step  13000  win-loss 0.0004  lr 0.01840     1407s
+    step  14000  win-loss 0.0003  lr 0.01661     1553s
+    step  15000  win-loss 0.0004  lr 0.01424     1700s
+    step  16000  win-loss 0.0003  lr 0.01221     1835s
+    step  17000  win-loss 0.0003  lr 0.01102     1930s
+    step  18000  win-loss 0.0003  lr 0.00945     2025s
+    step  19000  win-loss 0.0003  lr 0.00853     2121s
+    step  20000  win-loss 0.0003  lr 0.00731     2251s
+    step  21000  win-loss 0.0003  lr 0.00660     2405s
+    step  22000  win-loss 0.0003  lr 0.00566     2501s
+    step  23000  win-loss 0.0003  lr 0.00510     2585s
+    step  24000  win-loss 0.0003  lr 0.00438     2667s
+    step  25000  win-loss 0.0003  lr 0.00375     2749s
+device=mps jobs=9 (5 panel-(a) runs, never early-stopped) max_steps=25000 tau=0.05 early_stop(other runs)=True batch=128
+[1/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.0, 'panel_a': True}
+  [skip] inception__labels__p0.00__seed0 already done
+[2/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.2, 'panel_a': False}
+    step   1000  win-loss 1.3843  lr 0.09025       77s
+    step   2000  win-loss 1.1914  lr 0.07738      158s
+    step   3000  win-loss 1.0064  lr 0.06983      238s
+    step   4000  win-loss 0.7690  lr 0.05987      314s
+    step   5000  win-loss 0.5111  lr 0.05404      390s
+    step   6000  win-loss 0.2457  lr 0.04633      469s
+    step   7000  win-loss 0.0941  lr 0.04181      546s
+    step   8000  win-loss 0.0082  lr 0.03585      633s
+  done inception__labels__p0.20__seed0: steps=8300 cross=7300 train_err=0.0000 test_err=0.2854
+[3/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.4, 'panel_a': False}
+    step   1000  win-loss 1.8497  lr 0.09025       79s
+    step   2000  win-loss 1.7248  lr 0.07738      159s
+    step   3000  win-loss 1.5907  lr 0.06983      238s
+    step   4000  win-loss 1.4110  lr 0.05987      315s
+    step   5000  win-loss 1.2011  lr 0.05404      393s
+    step   6000  win-loss 0.7417  lr 0.04633      471s
+    step   7000  win-loss 0.5278  lr 0.04181      550s
+    step   8000  win-loss 0.1575  lr 0.03585      629s
+    step   9000  win-loss 0.0736  lr 0.03074      708s
+    step  10000  win-loss 0.0047  lr 0.02774      797s
+  done inception__labels__p0.40__seed0: steps=10200 cross=9200 train_err=0.0001 test_err=0.4395
+[4/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.6, 'panel_a': False}
+    step   1000  win-loss 2.1334  lr 0.09025       80s
+    step   2000  win-loss 2.0764  lr 0.07738      160s
+    step   3000  win-loss 2.0112  lr 0.06983      241s
+    step   4000  win-loss 1.9233  lr 0.05987      318s
+    step   5000  win-loss 1.7887  lr 0.05404      397s
+    step   6000  win-loss 1.4192  lr 0.04633      477s
+    step   7000  win-loss 1.2191  lr 0.04181      557s
+    step   8000  win-loss 0.5884  lr 0.03585      637s
+    step   9000  win-loss 0.4392  lr 0.03074      715s
+    step  10000  win-loss 0.1319  lr 0.02774      794s
+    step  11000  win-loss 0.0297  lr 0.02378      882s
+  done inception__labels__p0.60__seed0: steps=11700 cross=10700 train_err=0.0001 test_err=0.6399
+[5/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.8, 'panel_a': False}
+    step   1000  win-loss 2.2760  lr 0.09025       80s
+    step   2000  win-loss 2.2620  lr 0.07738      162s
+    step   3000  win-loss 2.2410  lr 0.06983      245s
+    step   4000  win-loss 2.2136  lr 0.05987      327s
+    step   5000  win-loss 2.1719  lr 0.05404      407s
+    step   6000  win-loss 2.0507  lr 0.04633      491s
+    step   7000  win-loss 1.9388  lr 0.04181      570s
+    step   8000  win-loss 1.4640  lr 0.03585      650s
+    step   9000  win-loss 1.2673  lr 0.03074      727s
+    step  10000  win-loss 0.6745  lr 0.02774      805s
+    step  11000  win-loss 0.4643  lr 0.02378      885s
+    step  12000  win-loss 0.1752  lr 0.02146      963s
+    step  13000  win-loss 0.0316  lr 0.01840     1052s
+  done inception__labels__p0.80__seed0: steps=13700 cross=12700 train_err=0.0002 test_err=0.7907
+[6/9] {'arch': 'inception', 'setting': 'labels', 'p': 1.0, 'panel_a': True}
+    step   1000  win-loss 2.3040  lr 0.09025       80s
+    step   2000  win-loss 2.3024  lr 0.07738      165s
+    step   3000  win-loss 2.2993  lr 0.06983      245s
+    step   4000  win-loss 2.2933  lr 0.05987      323s
+    step   5000  win-loss 2.2840  lr 0.05404      401s
+    step   6000  win-loss 2.2478  lr 0.04633      482s
+    step   7000  win-loss 2.2141  lr 0.04181      539s
+    step   8000  win-loss 2.0113  lr 0.03585      611s
+    step   9000  win-loss 1.8572  lr 0.03074      690s
+    step  10000  win-loss 1.3869  lr 0.02774      772s
+    step  11000  win-loss 1.0630  lr 0.02378      858s
+    step  12000  win-loss 0.6074  lr 0.02146      943s
+    step  13000  win-loss 0.3213  lr 0.01840     1028s
+    step  14000  win-loss 0.1247  lr 0.01661     1107s
+    step  15000  win-loss 0.0145  lr 0.01424     1194s
+    step  16000  win-loss 0.0053  lr 0.01221     1274s
+    step  17000  win-loss 0.0027  lr 0.01102     1352s
+    step  18000  win-loss 0.0023  lr 0.00945     1433s
+    step  19000  win-loss 0.0018  lr 0.00853     1512s
+    step  20000  win-loss 0.0016  lr 0.00731     1590s
+    step  21000  win-loss 0.0015  lr 0.00660     1669s
+    step  22000  win-loss 0.0012  lr 0.00566     1748s
+    step  23000  win-loss 0.0012  lr 0.00510     1828s
+    step  24000  win-loss 0.0011  lr 0.00438     1908s
+    step  25000  win-loss 0.0011  lr 0.00375     1988s
+  done inception__labels__p1.00__seed0: steps=25000 cross=14600 train_err=0.0000 test_err=0.8973
+[7/9] {'arch': 'inception', 'setting': 'shuffled_pixels', 'p': 0.0, 'panel_a': True}
+    step   1000  win-loss 1.3546  lr 0.09025       81s
+    step   2000  win-loss 1.0770  lr 0.07738      163s
+    step   3000  win-loss 0.7230  lr 0.06983      248s
+    step   4000  win-loss 0.4346  lr 0.05987      329s
+    step   5000  win-loss 0.1954  lr 0.05404      410s
+    step   6000  win-loss 0.0631  lr 0.04633      494s
+    step   7000  win-loss 0.0086  lr 0.04181      584s
+    step   8000  win-loss 0.0009  lr 0.03585      666s
+    step   9000  win-loss 0.0006  lr 0.03074      747s
+    step  10000  win-loss 0.0005  lr 0.02774      828s
+    step  11000  win-loss 0.0005  lr 0.02378      910s
+    step  12000  win-loss 0.0004  lr 0.02146      990s
+    step  13000  win-loss 0.0003  lr 0.01840     1073s
+    step  14000  win-loss 0.0003  lr 0.01661     1154s
+    step  15000  win-loss 0.0003  lr 0.01424     1237s
+    step  16000  win-loss 0.0003  lr 0.01221     1321s
+    step  17000  win-loss 0.0002  lr 0.01102     1403s
+    step  18000  win-loss 0.0002  lr 0.00945     1485s
+    step  19000  win-loss 0.0002  lr 0.00853     1566s
+    step  20000  win-loss 0.0002  lr 0.00731     1645s
+    step  21000  win-loss 0.0002  lr 0.00660     1724s
+    step  22000  win-loss 0.0002  lr 0.00566     1803s
+    step  23000  win-loss 0.0002  lr 0.00510     1883s
+    step  24000  win-loss 0.0002  lr 0.00438     1940s
+    step  25000  win-loss 0.0002  lr 0.00375     1997s
+  done inception__shuffled_pixels__p0.00__seed0: steps=25000 cross=6300 train_err=0.0000 test_err=0.4734
+[8/9] {'arch': 'inception', 'setting': 'random_pixels', 'p': 0.0, 'panel_a': True}
+    step   1000  win-loss 1.8230  lr 0.09025       56s
+    step   2000  win-loss 1.7211  lr 0.07738      113s
+    step   3000  win-loss 1.6023  lr 0.06983      170s
+    step   4000  win-loss 1.5174  lr 0.05987      226s
+    step   5000  win-loss 1.4317  lr 0.05404      283s
+    step   6000  win-loss 1.2776  lr 0.04633      341s
+    step   7000  win-loss 1.1846  lr 0.04181      397s
+    step   8000  win-loss 0.8719  lr 0.03585      456s
+    step   9000  win-loss 0.7721  lr 0.03074      513s
+    step  10000  win-loss 0.4449  lr 0.02774      571s
+    step  11000  win-loss 0.3087  lr 0.02378      629s
+    step  12000  win-loss 0.1304  lr 0.02146      685s
+    step  13000  win-loss 0.0451  lr 0.01840      741s
+    step  14000  win-loss 0.0073  lr 0.01661      803s
+    step  15000  win-loss 0.0030  lr 0.01424      858s
+    step  16000  win-loss 0.0023  lr 0.01221      914s
+    step  17000  win-loss 0.0017  lr 0.01102      969s
+    step  18000  win-loss 0.0015  lr 0.00945     1026s
+    step  19000  win-loss 0.0012  lr 0.00853     1081s
+    step  20000  win-loss 0.0011  lr 0.00731     1137s
+    step  21000  win-loss 0.0010  lr 0.00660     1193s
+    step  22000  win-loss 0.0009  lr 0.00566     1248s
+    step  23000  win-loss 0.0010  lr 0.00510     1304s
+    step  24000  win-loss 0.0009  lr 0.00438     1358s
+    step  25000  win-loss 0.0009  lr 0.00375     1413s
+  done inception__random_pixels__p0.00__seed0: steps=25000 cross=13000 train_err=0.0000 test_err=0.6508
+[9/9] {'arch': 'inception', 'setting': 'gaussian', 'p': 0.0, 'panel_a': True}
+    step   1000  win-loss 2.2924  lr 0.09025       55s
+    step   2000  win-loss 2.2273  lr 0.07738      110s
+    step   3000  win-loss 2.0630  lr 0.06983      166s
+    step   4000  win-loss 1.5460  lr 0.05987      221s
+    step   5000  win-loss 1.1132  lr 0.05404      276s
+    step   6000  win-loss 0.4633  lr 0.04633      333s
+    step   7000  win-loss 0.2025  lr 0.04181      388s
+    step   8000  win-loss 0.0192  lr 0.03585      451s
+    step   9000  win-loss 0.0013  lr 0.03074      507s
+    step  10000  win-loss 0.0007  lr 0.02774      562s
+    step  11000  win-loss 0.0005  lr 0.02378      619s
+    step  12000  win-loss 0.0004  lr 0.02146      676s
+    step  13000  win-loss 0.0004  lr 0.01840      733s
+    step  14000  win-loss 0.0003  lr 0.01661      789s
+    step  15000  win-loss 0.0003  lr 0.01424      845s
+    step  16000  win-loss 0.0003  lr 0.01221      902s
+    step  17000  win-loss 0.0003  lr 0.01102      957s
+    step  18000  win-loss 0.0003  lr 0.00945     1014s
+    step  19000  win-loss 0.0002  lr 0.00853     1070s
+    step  20000  win-loss 0.0002  lr 0.00731     1125s
+    step  21000  win-loss 0.0002  lr 0.00660     1182s
+    step  22000  win-loss 0.0002  lr 0.00566     1238s
+    step  23000  win-loss 0.0002  lr 0.00510     1295s
+    step  24000  win-loss 0.0002  lr 0.00438     1351s
+    step  25000  win-loss 0.0002  lr 0.00375     1407s
+  done inception__gaussian__p0.00__seed0: steps=25000 cross=7900 train_err=0.0000 test_err=0.8995

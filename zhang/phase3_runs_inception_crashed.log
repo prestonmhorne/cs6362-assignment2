@@ -1,0 +1,8 @@
+device=mps jobs=9 (5 panel-(a) runs, never early-stopped) max_steps=25000 tau=0.05 early_stop(other runs)=True batch=128
+[1/9] {'arch': 'inception', 'setting': 'labels', 'p': 0.0, 'panel_a': True}
+    step   1000  win-loss 0.5820  lr 0.09025      156s
+    step   2000  win-loss 0.3524  lr 0.07738      302s
+    step   3000  win-loss 0.1590  lr 0.06983      447s
+    step   4000  win-loss 0.0777  lr 0.05987      584s
+    step   5000  win-loss 0.0105  lr 0.05404      768s
+    step   6000  win-loss 0.0019  lr 0.04633     1087s

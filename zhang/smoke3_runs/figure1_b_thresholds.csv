@@ -1,0 +1,7 @@
+tau,arch,p,steps_run,cross_step,rel_time,censored_b
+0.02,inception,0.0,600,400,1.0,False
+0.02,inception,1.0,600,500,1.25,False
+0.05,inception,0.0,600,400,1.0,False
+0.05,inception,1.0,600,500,1.25,False
+0.1,inception,0.0,600,400,1.0,False
+0.1,inception,1.0,600,500,1.25,False

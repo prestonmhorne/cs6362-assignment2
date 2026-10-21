@@ -1,0 +1,43 @@
+{
+  "run_id": "inception__gaussian__p0.00__seed0",
+  "arch": "inception",
+  "setting": "gaussian",
+  "p": 0.0,
+  "seed": 0,
+  "n_params": 1649402,
+  "steps_run": 600,
+  "steps_per_epoch": 15,
+  "first_cross_step": 300,
+  "snapshot": {
+    "step": 300,
+    "train_loss": 0.0005164880454540253,
+    "train_err": 0.0,
+    "test_loss": 4.253663720703125,
+    "test_err": 0.9015
+  },
+  "final": {
+    "step": 600,
+    "train_loss": 0.0003263102769851685,
+    "train_err": 0.0,
+    "test_loss": 4.28515849609375,
+    "test_err": 0.9011
+  },
+  "evals": [],
+  "wall_seconds": 54.556527853012085,
+  "torch": "2.14.1",
+  "device": "mps",
+  "config": {
+    "batch_size": 128,
+    "tau": 0.3,
+    "window": 200,
+    "check_every": 100,
+    "max_steps": 600,
+    "early_stop": true,
+    "tail": 1000,
+    "lr0": 0.1,
+    "lr_decay": 0.95,
+    "momentum": 0.9,
+    "perm_over": "spatial",
+    "train_subset": 2000
+  }
+}

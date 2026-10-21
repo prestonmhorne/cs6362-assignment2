@@ -1,0 +1,43 @@
+{
+  "run_id": "mlp1x512__labels__p0.00__seed0",
+  "arch": "mlp1x512",
+  "setting": "labels",
+  "p": 0.0,
+  "seed": 0,
+  "n_params": 1209866,
+  "steps_run": 600,
+  "steps_per_epoch": 15,
+  "first_cross_step": 300,
+  "snapshot": {
+    "step": 300,
+    "train_loss": 0.08542758941650391,
+    "train_err": 0.0,
+    "test_loss": 2.2483640625,
+    "test_err": 0.6385
+  },
+  "final": {
+    "step": 600,
+    "train_loss": 0.05233824920654297,
+    "train_err": 0.0,
+    "test_loss": 2.361155419921875,
+    "test_err": 0.6366
+  },
+  "evals": [],
+  "wall_seconds": 1.1659979820251465,
+  "torch": "2.14.1",
+  "device": "mps",
+  "config": {
+    "batch_size": 128,
+    "tau": 0.3,
+    "window": 200,
+    "check_every": 100,
+    "max_steps": 600,
+    "early_stop": true,
+    "tail": 1000,
+    "lr0": 0.01,
+    "lr_decay": 0.95,
+    "momentum": 0.9,
+    "perm_over": "spatial",
+    "train_subset": 2000
+  }
+}

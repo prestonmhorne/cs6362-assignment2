@@ -1,0 +1,47 @@
+{
+ "args": {
+  "stage": "all",
+  "panels": [
+   "C2"
+  ],
+  "c1_variant": "alexnet",
+  "out": "phase3_runs",
+  "data_root": "../data",
+  "device": "auto",
+  "seed": 0,
+  "lr": 0.001,
+  "sb_bs": 256,
+  "lb_frac": 0.1,
+  "max_epochs": 300,
+  "cap": [
+   "C2:sb=40",
+   "C2:lb=40"
+  ],
+  "rel_tol": 0.01,
+  "patience": 10,
+  "stop_eval_every": 5,
+  "init": "shared",
+  "bn_mode": "recompute",
+  "n_alpha": 61,
+  "eval_bs": 2500,
+  "eval_every": 5,
+  "ckpt": "auto"
+ },
+ "key": "C2",
+ "batch_size": 256,
+ "device": "mps",
+ "torch": "2.14.1",
+ "wall_seconds": 691.6358499526978,
+ "stop_epoch": 30,
+ "stop_reason": "patience",
+ "max_epochs": 40,
+ "rel_tol": 0.01,
+ "patience": 10,
+ "stop_eval_every": 5,
+ "best_ref_loss": 0.07331962158203124,
+ "best_ref_epoch": 20,
+ "final_train_loss": 0.20482468505859375,
+ "final_train_acc": 94.51,
+ "final_test_loss": 1.098150634765625,
+ "final_test_acc": 81.61
+}

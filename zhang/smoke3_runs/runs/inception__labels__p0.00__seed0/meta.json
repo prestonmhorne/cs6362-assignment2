@@ -1,0 +1,44 @@
+{
+  "run_id": "inception__labels__p0.00__seed0",
+  "arch": "inception",
+  "setting": "labels",
+  "p": 0.0,
+  "seed": 0,
+  "n_params": 1649402,
+  "steps_run": 600,
+  "steps_per_epoch": 15,
+  "first_cross_step": 300,
+  "snapshot": {
+    "step": 300,
+    "train_loss": 0.0034223381280899046,
+    "train_err": 0.0,
+    "test_loss": 1.6373955078125,
+    "test_err": 0.4291
+  },
+  "final": {
+    "step": 600,
+    "train_loss": 0.0012903380393981933,
+    "train_err": 0.0,
+    "test_loss": 1.6909509643554688,
+    "test_err": 0.4294
+  },
+  "evals": [],
+  "wall_seconds": 100.49182486534119,
+  "torch": "2.14.1",
+  "device": "mps",
+  "config": {
+    "batch_size": 128,
+    "tau": 0.3,
+    "window": 200,
+    "check_every": 100,
+    "max_steps": 600,
+    "early_stop": false,
+    "tail": 1000,
+    "lr0": 0.1,
+    "lr_decay": 0.95,
+    "momentum": 0.9,
+    "perm_over": "spatial",
+    "train_subset": 2000,
+    "gaussian": "raw01_train_stats_then_crop_whiten"
+  }
+}

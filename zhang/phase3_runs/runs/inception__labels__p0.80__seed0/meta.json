@@ -1,0 +1,70 @@
+{
+  "run_id": "inception__labels__p0.80__seed0",
+  "arch": "inception",
+  "setting": "labels",
+  "p": 0.8,
+  "seed": 0,
+  "n_params": 1649402,
+  "steps_run": 13700,
+  "steps_per_epoch": 390,
+  "first_cross_step": 12700,
+  "snapshot": {
+    "step": 12700,
+    "train_loss": 0.03454275535583496,
+    "train_err": 0.00674,
+    "test_loss": 5.37950439453125,
+    "test_err": 0.7953
+  },
+  "final": {
+    "step": 13700,
+    "train_loss": 0.003753120379447937,
+    "train_err": 0.00016,
+    "test_loss": 5.363207421875,
+    "test_err": 0.7907
+  },
+  "evals": [
+    {
+      "step": 2500,
+      "test_loss": 1.988632763671875,
+      "test_err": 0.5319
+    },
+    {
+      "step": 5000,
+      "test_loss": 1.8671233642578124,
+      "test_err": 0.5871
+    },
+    {
+      "step": 7500,
+      "test_loss": 2.9189729736328127,
+      "test_err": 0.7939
+    },
+    {
+      "step": 10000,
+      "test_loss": 4.4651109375,
+      "test_err": 0.8193
+    },
+    {
+      "step": 12500,
+      "test_loss": 5.288335205078125,
+      "test_err": 0.7937
+    }
+  ],
+  "wall_seconds": 1116.8048207759857,
+  "torch": "2.14.1",
+  "device": "mps",
+  "config": {
+    "batch_size": 128,
+    "tau": 0.05,
+    "window": 200,
+    "check_every": 100,
+    "max_steps": 25000,
+    "early_stop": true,
+    "tail": 1000,
+    "lr0": 0.1,
+    "lr_decay": 0.95,
+    "momentum": 0.9,
+    "perm_over": "spatial",
+    "train_subset": 0,
+    "gaussian": "raw01_train_stats_then_crop_whiten"
+  }
+}

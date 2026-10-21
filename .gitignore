@@ -1,0 +1,7 @@
+data/
+*.pt
+papers/
+.DS_Store
+overnight.log
+overnight.sh
+resume_bvae.sh

@@ -1,0 +1,43 @@
+{
+  "run_id": "inception__shuffled_pixels__p0.00__seed0",
+  "arch": "inception",
+  "setting": "shuffled_pixels",
+  "p": 0.0,
+  "seed": 0,
+  "n_params": 1649402,
+  "steps_run": 600,
+  "steps_per_epoch": 15,
+  "first_cross_step": 300,
+  "snapshot": {
+    "step": 300,
+    "train_loss": 0.0007870939970016479,
+    "train_err": 0.0,
+    "test_loss": 2.819737939453125,
+    "test_err": 0.662
+  },
+  "final": {
+    "step": 600,
+    "train_loss": 0.00042959101498126986,
+    "train_err": 0.0,
+    "test_loss": 2.841339208984375,
+    "test_err": 0.6582
+  },
+  "evals": [],
+  "wall_seconds": 55.00715088844299,
+  "torch": "2.14.1",
+  "device": "mps",
+  "config": {
+    "batch_size": 128,
+    "tau": 0.3,
+    "window": 200,
+    "check_every": 100,
+    "max_steps": 600,
+    "early_stop": true,
+    "tail": 1000,
+    "lr0": 0.1,
+    "lr_decay": 0.95,
+    "momentum": 0.9,
+    "perm_over": "spatial",
+    "train_subset": 2000
+  }
+}

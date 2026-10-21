@@ -1,0 +1,2 @@
+{"epoch": 1, "batch_size": 5000, "train_loss_running": 2.013335625, "train_acc_running": 26.17, "epoch_seconds": 5.62059473991394}
+{"epoch": 2, "batch_size": 5000, "train_loss_running": 1.640019375, "train_acc_running": 40.364, "epoch_seconds": 4.104581117630005, "train_loss": 2.6467276171875, "train_acc": 11.312, "test_loss": 2.64539404296875, "test_acc": 11.16}

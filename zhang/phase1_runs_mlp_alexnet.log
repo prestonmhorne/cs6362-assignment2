@@ -1,0 +1,448 @@
+device=mps jobs=22 max_steps=25000 tau=0.05 early_stop=True batch=128
+[1/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.0}
+    step   1000  win-loss 1.2507  lr 0.00903        1s
+    step   2000  win-loss 1.0702  lr 0.00774        2s
+    step   3000  win-loss 0.8295  lr 0.00698        3s
+    step   4000  win-loss 0.6628  lr 0.00599        4s
+    step   5000  win-loss 0.5121  lr 0.00540        4s
+    step   6000  win-loss 0.3467  lr 0.00463        5s
+    step   7000  win-loss 0.2799  lr 0.00418        6s
+    step   8000  win-loss 0.1728  lr 0.00358        7s
+    step   9000  win-loss 0.1418  lr 0.00307        8s
+    step  10000  win-loss 0.0991  lr 0.00277        9s
+    step  11000  win-loss 0.0826  lr 0.00238       10s
+    step  12000  win-loss 0.0662  lr 0.00215       11s
+    step  13000  win-loss 0.0559  lr 0.00184       11s
+    step  14000  win-loss 0.0513  lr 0.00166       12s
+    step  15000  win-loss 0.0442  lr 0.00142       13s
+  done mlp1x512__labels__p0.00__seed0: steps=15200 cross=14200 train_err=0.0008 test_err=0.4858
+[2/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.1}
+    step   1000  win-loss 1.4975  lr 0.00903        1s
+    step   2000  win-loss 1.3316  lr 0.00774        2s
+    step   3000  win-loss 1.1081  lr 0.00698        3s
+    step   4000  win-loss 0.9313  lr 0.00599        4s
+    step   5000  win-loss 0.7809  lr 0.00540        4s
+    step   6000  win-loss 0.5870  lr 0.00463        5s
+    step   7000  win-loss 0.4951  lr 0.00418        6s
+    step   8000  win-loss 0.3238  lr 0.00358        7s
+    step   9000  win-loss 0.2819  lr 0.00307        8s
+    step  10000  win-loss 0.2027  lr 0.00277        9s
+    step  11000  win-loss 0.1631  lr 0.00238       10s
+    step  12000  win-loss 0.1276  lr 0.00215       10s
+    step  13000  win-loss 0.1048  lr 0.00184       11s
+    step  14000  win-loss 0.0932  lr 0.00166       12s
+    step  15000  win-loss 0.0780  lr 0.00142       13s
+    step  16000  win-loss 0.0748  lr 0.00122       14s
+    step  17000  win-loss 0.0647  lr 0.00110       15s
+    step  18000  win-loss 0.0626  lr 0.00094       16s
+    step  19000  win-loss 0.0592  lr 0.00085       17s
+    step  20000  win-loss 0.0553  lr 0.00073       17s
+    step  21000  win-loss 0.0536  lr 0.00066       18s
+    step  22000  win-loss 0.0517  lr 0.00057       19s
+    step  23000  win-loss 0.0502  lr 0.00051       20s
+    step  24000  win-loss 0.0482  lr 0.00044       21s
+  done mlp1x512__labels__p0.10__seed0: steps=24200 cross=23200 train_err=0.0011 test_err=0.5395
+[3/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.2}
+    step   1000  win-loss 1.6695  lr 0.00903        1s
+    step   2000  win-loss 1.5149  lr 0.00774        2s
+    step   3000  win-loss 1.3144  lr 0.00698        3s
+    step   4000  win-loss 1.1357  lr 0.00599        4s
+    step   5000  win-loss 0.9789  lr 0.00540        4s
+    step   6000  win-loss 0.7585  lr 0.00463        5s
+    step   7000  win-loss 0.6673  lr 0.00418        6s
+    step   8000  win-loss 0.4634  lr 0.00358        7s
+    step   9000  win-loss 0.4133  lr 0.00307        8s
+    step  10000  win-loss 0.3027  lr 0.00277        9s
+    step  11000  win-loss 0.2479  lr 0.00238       10s
+    step  12000  win-loss 0.1967  lr 0.00215       10s
+    step  13000  win-loss 0.1576  lr 0.00184       11s
+    step  14000  win-loss 0.1393  lr 0.00166       12s
+    step  15000  win-loss 0.1120  lr 0.00142       13s
+    step  16000  win-loss 0.1104  lr 0.00122       14s
+    step  17000  win-loss 0.0928  lr 0.00110       15s
+    step  18000  win-loss 0.0898  lr 0.00094       16s
+    step  19000  win-loss 0.0815  lr 0.00085       17s
+    step  20000  win-loss 0.0774  lr 0.00073       17s
+    step  21000  win-loss 0.0745  lr 0.00066       18s
+    step  22000  win-loss 0.0710  lr 0.00057       19s
+    step  23000  win-loss 0.0696  lr 0.00051       20s
+    step  24000  win-loss 0.0660  lr 0.00044       21s
+    step  25000  win-loss 0.0648  lr 0.00038       22s
+  done mlp1x512__labels__p0.20__seed0: steps=25000 cross=None train_err=0.0020 test_err=0.5831
+[4/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.3}
+    step   1000  win-loss 1.8201  lr 0.00903        1s
+    step   2000  win-loss 1.6792  lr 0.00774        2s
+    step   3000  win-loss 1.4824  lr 0.00698        3s
+    step   4000  win-loss 1.3087  lr 0.00599        4s
+    step   5000  win-loss 1.1456  lr 0.00540        4s
+    step   6000  win-loss 0.9279  lr 0.00463        5s
+    step   7000  win-loss 0.8177  lr 0.00418        6s
+    step   8000  win-loss 0.5957  lr 0.00358        7s
+    step   9000  win-loss 0.5305  lr 0.00307        8s
+    step  10000  win-loss 0.4000  lr 0.00277        9s
+    step  11000  win-loss 0.3354  lr 0.00238       10s
+    step  12000  win-loss 0.2683  lr 0.00215       10s
+    step  13000  win-loss 0.2137  lr 0.00184       11s
+    step  14000  win-loss 0.1875  lr 0.00166       12s
+    step  15000  win-loss 0.1514  lr 0.00142       13s
+    step  16000  win-loss 0.1457  lr 0.00122       14s
+    step  17000  win-loss 0.1227  lr 0.00110       15s
+    step  18000  win-loss 0.1158  lr 0.00094       16s
+    step  19000  win-loss 0.1072  lr 0.00085       17s
+    step  20000  win-loss 0.1004  lr 0.00073       18s
+    step  21000  win-loss 0.0976  lr 0.00066       18s
+    step  22000  win-loss 0.0900  lr 0.00057       19s
+    step  23000  win-loss 0.0889  lr 0.00051       20s
+    step  24000  win-loss 0.0829  lr 0.00044       21s
+    step  25000  win-loss 0.0826  lr 0.00038       22s
+  done mlp1x512__labels__p0.30__seed0: steps=25000 cross=None train_err=0.0030 test_err=0.6300
+[5/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.4}
+    step   1000  win-loss 1.9456  lr 0.00903        1s
+    step   2000  win-loss 1.8211  lr 0.00774        2s
+    step   3000  win-loss 1.6221  lr 0.00698        3s
+    step   4000  win-loss 1.4600  lr 0.00599        4s
+    step   5000  win-loss 1.2964  lr 0.00540        4s
+    step   6000  win-loss 1.0532  lr 0.00463        5s
+    step   7000  win-loss 0.9615  lr 0.00418        6s
+    step   8000  win-loss 0.7096  lr 0.00358        7s
+    step   9000  win-loss 0.6491  lr 0.00307        8s
+    step  10000  win-loss 0.4986  lr 0.00277        9s
+    step  11000  win-loss 0.4212  lr 0.00238       10s
+    step  12000  win-loss 0.3385  lr 0.00215       10s
+    step  13000  win-loss 0.2740  lr 0.00184       11s
+    step  14000  win-loss 0.2386  lr 0.00166       12s
+    step  15000  win-loss 0.1907  lr 0.00142       13s
+    step  16000  win-loss 0.1843  lr 0.00122       14s
+    step  17000  win-loss 0.1527  lr 0.00110       15s
+    step  18000  win-loss 0.1460  lr 0.00094       16s
+    step  19000  win-loss 0.1344  lr 0.00085       17s
+    step  20000  win-loss 0.1263  lr 0.00073       18s
+    step  21000  win-loss 0.1212  lr 0.00066       18s
+    step  22000  win-loss 0.1106  lr 0.00057       19s
+    step  23000  win-loss 0.1104  lr 0.00051       20s
+    step  24000  win-loss 0.1031  lr 0.00044       21s
+    step  25000  win-loss 0.1024  lr 0.00038       22s
+  done mlp1x512__labels__p0.40__seed0: steps=25000 cross=None train_err=0.0041 test_err=0.6714
+[6/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.5}
+    step   1000  win-loss 2.0412  lr 0.00903        1s
+    step   2000  win-loss 1.9315  lr 0.00774        2s
+    step   3000  win-loss 1.7383  lr 0.00698        3s
+    step   4000  win-loss 1.5759  lr 0.00599        3s
+    step   5000  win-loss 1.4108  lr 0.00540        4s
+    step   6000  win-loss 1.1716  lr 0.00463        5s
+    step   7000  win-loss 1.0768  lr 0.00418        6s
+    step   8000  win-loss 0.8015  lr 0.00358        7s
+    step   9000  win-loss 0.7439  lr 0.00307        8s
+    step  10000  win-loss 0.5759  lr 0.00277        9s
+    step  11000  win-loss 0.4933  lr 0.00238        9s
+    step  12000  win-loss 0.3983  lr 0.00215       10s
+    step  13000  win-loss 0.3232  lr 0.00184       11s
+    step  14000  win-loss 0.2844  lr 0.00166       12s
+    step  15000  win-loss 0.2284  lr 0.00142       13s
+    step  16000  win-loss 0.2185  lr 0.00122       14s
+    step  17000  win-loss 0.1837  lr 0.00110       15s
+    step  18000  win-loss 0.1748  lr 0.00094       16s
+    step  19000  win-loss 0.1590  lr 0.00085       16s
+    step  20000  win-loss 0.1495  lr 0.00073       17s
+    step  21000  win-loss 0.1427  lr 0.00066       18s
+    step  22000  win-loss 0.1299  lr 0.00057       19s
+    step  23000  win-loss 0.1289  lr 0.00051       20s
+    step  24000  win-loss 0.1201  lr 0.00044       21s
+    step  25000  win-loss 0.1197  lr 0.00038       22s
+  done mlp1x512__labels__p0.50__seed0: steps=25000 cross=None train_err=0.0055 test_err=0.7079
+[7/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.6}
+    step   1000  win-loss 2.1195  lr 0.00903        1s
+    step   2000  win-loss 2.0172  lr 0.00774        2s
+    step   3000  win-loss 1.8312  lr 0.00698        3s
+    step   4000  win-loss 1.6724  lr 0.00599        3s
+    step   5000  win-loss 1.4991  lr 0.00540        4s
+    step   6000  win-loss 1.2616  lr 0.00463        5s
+    step   7000  win-loss 1.1564  lr 0.00418        6s
+    step   8000  win-loss 0.8844  lr 0.00358        7s
+    step   9000  win-loss 0.8278  lr 0.00307        8s
+    step  10000  win-loss 0.6444  lr 0.00277        9s
+    step  11000  win-loss 0.5620  lr 0.00238       10s
+    step  12000  win-loss 0.4561  lr 0.00215       10s
+    step  13000  win-loss 0.3687  lr 0.00184       11s
+    step  14000  win-loss 0.3292  lr 0.00166       12s
+    step  15000  win-loss 0.2621  lr 0.00142       13s
+    step  16000  win-loss 0.2547  lr 0.00122       14s
+    step  17000  win-loss 0.2089  lr 0.00110       15s
+    step  18000  win-loss 0.1992  lr 0.00094       16s
+    step  19000  win-loss 0.1816  lr 0.00085       16s
+    step  20000  win-loss 0.1719  lr 0.00073       17s
+    step  21000  win-loss 0.1617  lr 0.00066       18s
+    step  22000  win-loss 0.1483  lr 0.00057       19s
+    step  23000  win-loss 0.1464  lr 0.00051       20s
+    step  24000  win-loss 0.1358  lr 0.00044       21s
+    step  25000  win-loss 0.1362  lr 0.00038       22s
+  done mlp1x512__labels__p0.60__seed0: steps=25000 cross=None train_err=0.0074 test_err=0.7469
+[8/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.7}
+    step   1000  win-loss 2.1776  lr 0.00903        1s
+    step   2000  win-loss 2.0829  lr 0.00774        2s
+    step   3000  win-loss 1.9064  lr 0.00698        3s
+    step   4000  win-loss 1.7459  lr 0.00599        3s
+    step   5000  win-loss 1.5786  lr 0.00540        4s
+    step   6000  win-loss 1.3327  lr 0.00463        5s
+    step   7000  win-loss 1.2457  lr 0.00418        6s
+    step   8000  win-loss 0.9682  lr 0.00358        7s
+    step   9000  win-loss 0.9042  lr 0.00307        8s
+    step  10000  win-loss 0.7127  lr 0.00277        9s
+    step  11000  win-loss 0.6173  lr 0.00238       10s
+    step  12000  win-loss 0.5026  lr 0.00215       10s
+    step  13000  win-loss 0.4144  lr 0.00184       11s
+    step  14000  win-loss 0.3718  lr 0.00166       12s
+    step  15000  win-loss 0.2991  lr 0.00142       13s
+    step  16000  win-loss 0.2899  lr 0.00122       14s
+    step  17000  win-loss 0.2376  lr 0.00110       15s
+    step  18000  win-loss 0.2276  lr 0.00094       16s
+    step  19000  win-loss 0.2074  lr 0.00085       17s
+    step  20000  win-loss 0.1925  lr 0.00073       17s
+    step  21000  win-loss 0.1832  lr 0.00066       18s
+    step  22000  win-loss 0.1681  lr 0.00057       19s
+    step  23000  win-loss 0.1660  lr 0.00051       20s
+    step  24000  win-loss 0.1521  lr 0.00044       21s
+    step  25000  win-loss 0.1534  lr 0.00038       22s
+  done mlp1x512__labels__p0.70__seed0: steps=25000 cross=None train_err=0.0091 test_err=0.7960
+[9/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.8}
+    step   1000  win-loss 2.2175  lr 0.00903        1s
+    step   2000  win-loss 2.1292  lr 0.00774        2s
+    step   3000  win-loss 1.9599  lr 0.00698        3s
+    step   4000  win-loss 1.7939  lr 0.00599        4s
+    step   5000  win-loss 1.6274  lr 0.00540        4s
+    step   6000  win-loss 1.3837  lr 0.00463        5s
+    step   7000  win-loss 1.2878  lr 0.00418        6s
+    step   8000  win-loss 1.0020  lr 0.00358        7s
+    step   9000  win-loss 0.9338  lr 0.00307        8s
+    step  10000  win-loss 0.7485  lr 0.00277        9s
+    step  11000  win-loss 0.6483  lr 0.00238       10s
+    step  12000  win-loss 0.5366  lr 0.00215       10s
+    step  13000  win-loss 0.4390  lr 0.00184       11s
+    step  14000  win-loss 0.3954  lr 0.00166       12s
+    step  15000  win-loss 0.3194  lr 0.00142       13s
+    step  16000  win-loss 0.3087  lr 0.00122       14s
+    step  17000  win-loss 0.2518  lr 0.00110       15s
+    step  18000  win-loss 0.2413  lr 0.00094       16s
+    step  19000  win-loss 0.2185  lr 0.00085       17s
+    step  20000  win-loss 0.2031  lr 0.00073       17s
+    step  21000  win-loss 0.1953  lr 0.00066       18s
+    step  22000  win-loss 0.1803  lr 0.00057       19s
+    step  23000  win-loss 0.1770  lr 0.00051       20s
+    step  24000  win-loss 0.1623  lr 0.00044       21s
+    step  25000  win-loss 0.1634  lr 0.00038       22s
+  done mlp1x512__labels__p0.80__seed0: steps=25000 cross=None train_err=0.0098 test_err=0.8274
+[10/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.9}
+    step   1000  win-loss 2.2409  lr 0.00903        1s
+    step   2000  win-loss 2.1588  lr 0.00774        2s
+    step   3000  win-loss 2.0012  lr 0.00698        3s
+    step   4000  win-loss 1.8216  lr 0.00599        3s
+    step   5000  win-loss 1.6723  lr 0.00540        4s
+    step   6000  win-loss 1.4159  lr 0.00463        5s
+    step   7000  win-loss 1.3243  lr 0.00418        6s
+    step   8000  win-loss 1.0375  lr 0.00358        7s
+    step   9000  win-loss 0.9688  lr 0.00307        8s
+    step  10000  win-loss 0.7816  lr 0.00277        9s
+    step  11000  win-loss 0.6808  lr 0.00238       10s
+    step  12000  win-loss 0.5616  lr 0.00215       10s
+    step  13000  win-loss 0.4641  lr 0.00184       11s
+    step  14000  win-loss 0.4148  lr 0.00166       12s
+    step  15000  win-loss 0.3324  lr 0.00142       13s
+    step  16000  win-loss 0.3228  lr 0.00122       14s
+    step  17000  win-loss 0.2648  lr 0.00110       15s
+    step  18000  win-loss 0.2511  lr 0.00094       16s
+    step  19000  win-loss 0.2297  lr 0.00085       17s
+    step  20000  win-loss 0.2141  lr 0.00073       17s
+    step  21000  win-loss 0.2052  lr 0.00066       18s
+    step  22000  win-loss 0.1877  lr 0.00057       19s
+    step  23000  win-loss 0.1858  lr 0.00051       20s
+    step  24000  win-loss 0.1711  lr 0.00044       21s
+    step  25000  win-loss 0.1709  lr 0.00038       22s
+  done mlp1x512__labels__p0.90__seed0: steps=25000 cross=None train_err=0.0106 test_err=0.8579
+[11/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 1.0}
+    step   1000  win-loss 2.2494  lr 0.00903        1s
+    step   2000  win-loss 2.1718  lr 0.00774        2s
+    step   3000  win-loss 2.0188  lr 0.00698        3s
+    step   4000  win-loss 1.8463  lr 0.00599        4s
+    step   5000  win-loss 1.6893  lr 0.00540        4s
+    step   6000  win-loss 1.4404  lr 0.00463        5s
+    step   7000  win-loss 1.3450  lr 0.00418        6s
+    step   8000  win-loss 1.0665  lr 0.00358        7s
+    step   9000  win-loss 0.9865  lr 0.00307        8s
+    step  10000  win-loss 0.7999  lr 0.00277        9s
+    step  11000  win-loss 0.7016  lr 0.00238       10s
+    step  12000  win-loss 0.5727  lr 0.00215       11s
+    step  13000  win-loss 0.4700  lr 0.00184       12s
+    step  14000  win-loss 0.4290  lr 0.00166       13s
+    step  15000  win-loss 0.3417  lr 0.00142       13s
+    step  16000  win-loss 0.3351  lr 0.00122       14s
+    step  17000  win-loss 0.2749  lr 0.00110       15s
+    step  18000  win-loss 0.2619  lr 0.00094       16s
+    step  19000  win-loss 0.2358  lr 0.00085       17s
+    step  20000  win-loss 0.2218  lr 0.00073       18s
+    step  21000  win-loss 0.2113  lr 0.00066       19s
+    step  22000  win-loss 0.1937  lr 0.00057       20s
+    step  23000  win-loss 0.1917  lr 0.00051       21s
+    step  24000  win-loss 0.1760  lr 0.00044       22s
+    step  25000  win-loss 0.1755  lr 0.00038       23s
+  done mlp1x512__labels__p1.00__seed0: steps=25000 cross=None train_err=0.0115 test_err=0.8976
+[12/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.0}
+    step   1000  win-loss 0.7744  lr 0.00903       20s
+    step   2000  win-loss 0.5054  lr 0.00774       39s
+    step   3000  win-loss 0.2257  lr 0.00698       57s
+    step   4000  win-loss 0.0844  lr 0.00599       74s
+    step   5000  win-loss 0.0073  lr 0.00540       94s
+  done alexnet__labels__p0.00__seed0: steps=5400 cross=4400 train_err=0.0000 test_err=0.2365
+[13/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.1}
+    step   1000  win-loss 1.1734  lr 0.00903       17s
+    step   2000  win-loss 0.9355  lr 0.00774       36s
+    step   3000  win-loss 0.6407  lr 0.00698       74s
+    step   4000  win-loss 0.3695  lr 0.00599      116s
+    step   5000  win-loss 0.1396  lr 0.00540      155s
+    step   6000  win-loss 0.0310  lr 0.00463      200s
+  done alexnet__labels__p0.10__seed0: steps=6700 cross=5700 train_err=0.0007 test_err=0.2965
+[14/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.2}
+    step   1000  win-loss 1.4463  lr 0.00903       39s
+    step   2000  win-loss 1.2381  lr 0.00774       78s
+    step   3000  win-loss 0.9588  lr 0.00698      118s
+    step   4000  win-loss 0.6257  lr 0.00599      159s
+    step   5000  win-loss 0.3223  lr 0.00540      197s
+    step   6000  win-loss 0.1086  lr 0.00463      237s
+    step   7000  win-loss 0.0260  lr 0.00418      277s
+  done alexnet__labels__p0.20__seed0: steps=7500 cross=6500 train_err=0.0006 test_err=0.3644
+[15/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.3}
+    step   1000  win-loss 1.6693  lr 0.00903       21s
+    step   2000  win-loss 1.4967  lr 0.00774       61s
+    step   3000  win-loss 1.2433  lr 0.00698      103s
+    step   4000  win-loss 0.9163  lr 0.00599      150s
+    step   5000  win-loss 0.5413  lr 0.00540      194s
+    step   6000  win-loss 0.1964  lr 0.00463      234s
+    step   7000  win-loss 0.0798  lr 0.00418      273s
+    step   8000  win-loss 0.0132  lr 0.00358      317s
+  done alexnet__labels__p0.30__seed0: steps=8200 cross=7200 train_err=0.0012 test_err=0.4227
+[16/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.4}
+    step   1000  win-loss 1.8480  lr 0.00903       42s
+    step   2000  win-loss 1.7191  lr 0.00774       86s
+    step   3000  win-loss 1.4890  lr 0.00698      132s
+    step   4000  win-loss 1.1622  lr 0.00599      177s
+    step   5000  win-loss 0.7688  lr 0.00540      226s
+    step   6000  win-loss 0.3284  lr 0.00463      277s
+    step   7000  win-loss 0.1481  lr 0.00418      327s
+    step   8000  win-loss 0.0255  lr 0.00358      384s
+  done alexnet__labels__p0.40__seed0: steps=8600 cross=7600 train_err=0.0011 test_err=0.5002
+[17/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.5}
+    step   1000  win-loss 2.0003  lr 0.00903       67s
+    step   2000  win-loss 1.8965  lr 0.00774      131s
+    step   3000  win-loss 1.7100  lr 0.00698      202s
+    step   4000  win-loss 1.4217  lr 0.00599      264s
+    step   5000  win-loss 1.0548  lr 0.00540      324s
+    step   6000  win-loss 0.5312  lr 0.00463      391s
+    step   7000  win-loss 0.2822  lr 0.00418      438s
+device=mps jobs=22 max_steps=25000 tau=0.05 early_stop=True batch=128
+[1/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.0}
+  [skip] mlp1x512__labels__p0.00__seed0 already done
+[2/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.1}
+  [skip] mlp1x512__labels__p0.10__seed0 already done
+[3/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.2}
+  [skip] mlp1x512__labels__p0.20__seed0 already done
+[4/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.3}
+  [skip] mlp1x512__labels__p0.30__seed0 already done
+[5/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.4}
+  [skip] mlp1x512__labels__p0.40__seed0 already done
+[6/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.5}
+  [skip] mlp1x512__labels__p0.50__seed0 already done
+[7/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.6}
+  [skip] mlp1x512__labels__p0.60__seed0 already done
+[8/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.7}
+  [skip] mlp1x512__labels__p0.70__seed0 already done
+[9/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.8}
+  [skip] mlp1x512__labels__p0.80__seed0 already done
+[10/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 0.9}
+  [skip] mlp1x512__labels__p0.90__seed0 already done
+[11/22] {'arch': 'mlp1x512', 'setting': 'labels', 'p': 1.0}
+  [skip] mlp1x512__labels__p1.00__seed0 already done
+[12/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.0}
+  [skip] alexnet__labels__p0.00__seed0 already done
+[13/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.1}
+  [skip] alexnet__labels__p0.10__seed0 already done
+[14/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.2}
+  [skip] alexnet__labels__p0.20__seed0 already done
+[15/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.3}
+  [skip] alexnet__labels__p0.30__seed0 already done
+[16/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.4}
+  [skip] alexnet__labels__p0.40__seed0 already done
+[17/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.5}
+    step   1000  win-loss 2.0003  lr 0.00903       12s
+    step   2000  win-loss 1.8965  lr 0.00774       25s
+    step   3000  win-loss 1.7100  lr 0.00698       37s
+    step   4000  win-loss 1.4217  lr 0.00599       49s
+    step   5000  win-loss 1.0548  lr 0.00540       63s
+    step   6000  win-loss 0.5312  lr 0.00463       76s
+    step   7000  win-loss 0.2822  lr 0.00418       90s
+    step   8000  win-loss 0.0580  lr 0.00358      103s
+    step   9000  win-loss 0.0184  lr 0.00307      118s
+  done alexnet__labels__p0.50__seed0: steps=9400 cross=8400 train_err=0.0007 test_err=0.5651
+[18/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.6}
+    step   1000  win-loss 2.1213  lr 0.00903       20s
+    step   2000  win-loss 2.0460  lr 0.00774       33s
+    step   3000  win-loss 1.9036  lr 0.00698       47s
+    step   4000  win-loss 1.6669  lr 0.00599       60s
+    step   5000  win-loss 1.3415  lr 0.00540       78s
+    step   6000  win-loss 0.7639  lr 0.00463       97s
+    step   7000  win-loss 0.4678  lr 0.00418      114s
+    step   8000  win-loss 0.1132  lr 0.00358      133s
+    step   9000  win-loss 0.0382  lr 0.00307      156s
+  done alexnet__labels__p0.60__seed0: steps=9800 cross=8800 train_err=0.0010 test_err=0.6400
+[19/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.7}
+    step   1000  win-loss 2.2099  lr 0.00903       20s
+    step   2000  win-loss 2.1661  lr 0.00774       41s
+    step   3000  win-loss 2.0601  lr 0.00698       61s
+    step   4000  win-loss 1.8899  lr 0.00599       80s
+    step   5000  win-loss 1.6051  lr 0.00540       99s
+    step   6000  win-loss 1.0602  lr 0.00463      119s
+    step   7000  win-loss 0.7173  lr 0.00418      138s
+    step   8000  win-loss 0.2386  lr 0.00358      163s
+    step   9000  win-loss 0.1168  lr 0.00307      187s
+    step  10000  win-loss 0.0182  lr 0.00277      215s
+  done alexnet__labels__p0.70__seed0: steps=10500 cross=9500 train_err=0.0010 test_err=0.7229
+[20/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.8}
+    step   1000  win-loss 2.2648  lr 0.00903       26s
+    step   2000  win-loss 2.2359  lr 0.00774       51s
+    step   3000  win-loss 2.1661  lr 0.00698       77s
+    step   4000  win-loss 2.0328  lr 0.00599       99s
+    step   5000  win-loss 1.8158  lr 0.00540      125s
+    step   6000  win-loss 1.3388  lr 0.00463      146s
+    step   7000  win-loss 1.0465  lr 0.00418      158s
+    step   8000  win-loss 0.4043  lr 0.00358      171s
+    step   9000  win-loss 0.2564  lr 0.00307      183s
+    step  10000  win-loss 0.0448  lr 0.00277      196s
+    step  11000  win-loss 0.0186  lr 0.00238      210s
+  done alexnet__labels__p0.80__seed0: steps=11000 cross=10000 train_err=0.0011 test_err=0.7913
+[21/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 0.9}
+    step   1000  win-loss 2.2956  lr 0.00903       12s
+    step   2000  win-loss 2.2846  lr 0.00774       25s
+    step   3000  win-loss 2.2538  lr 0.00698       37s
+    step   4000  win-loss 2.1809  lr 0.00599       50s
+    step   5000  win-loss 2.0641  lr 0.00540       62s
+    step   6000  win-loss 1.7579  lr 0.00463       74s
+    step   7000  win-loss 1.5520  lr 0.00418       87s
+    step   8000  win-loss 0.9140  lr 0.00358      100s
+    step   9000  win-loss 0.7298  lr 0.00307      112s
+    step  10000  win-loss 0.2630  lr 0.00277      124s
+    step  11000  win-loss 0.1140  lr 0.00238      137s
+    step  12000  win-loss 0.0238  lr 0.00215      151s
+  done alexnet__labels__p0.90__seed0: steps=12500 cross=11500 train_err=0.0010 test_err=0.8509
+[22/22] {'arch': 'alexnet', 'setting': 'labels', 'p': 1.0}
+    step   1000  win-loss 2.3022  lr 0.00903       12s
+    step   2000  win-loss 2.2983  lr 0.00774       25s
+    step   3000  win-loss 2.2834  lr 0.00698       37s
+    step   4000  win-loss 2.2457  lr 0.00599       50s
+    step   5000  win-loss 2.1817  lr 0.00540       62s
+    step   6000  win-loss 2.0027  lr 0.00463       74s
+    step   7000  win-loss 1.8541  lr 0.00418       87s
+    step   8000  win-loss 1.3599  lr 0.00358       99s
+    step   9000  win-loss 1.1355  lr 0.00307      111s
+    step  10000  win-loss 0.5959  lr 0.00277      124s
+    step  11000  win-loss 0.3496  lr 0.00238      136s
+    step  12000  win-loss 0.0972  lr 0.00215      149s
+    step  13000  win-loss 0.0310  lr 0.00184      163s
+  done alexnet__labels__p1.00__seed0: steps=13700 cross=12700 train_err=0.0012 test_err=0.9010

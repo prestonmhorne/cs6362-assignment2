@@ -1,0 +1,31 @@
+{
+ "args": {
+  "stage": "all",
+  "panels": [
+   "F1",
+   "C1",
+   "C2"
+  ],
+  "out": "runs_smoke",
+  "data_root": "../data",
+  "device": "auto",
+  "seed": 0,
+  "lr": 0.001,
+  "sb_bs": 256,
+  "lb_frac": 0.1,
+  "epochs": 2,
+  "sb_epochs": null,
+  "lb_epochs": null,
+  "init": "shared",
+  "bn_mode": "recompute",
+  "n_alpha": 5,
+  "eval_bs": 2500,
+  "eval_every": 5,
+  "ckpt": "auto"
+ },
+ "batch_size": 5000,
+ "epochs": 2,
+ "device": "mps",
+ "torch": "2.14.1",
+ "wall_seconds": 11.098512887954712
+}
