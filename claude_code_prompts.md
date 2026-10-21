@@ -4,7 +4,7 @@ The course LLM policy asks us to name the LLM, separate our work from its output
 covers the IDE-assistant (Claude Code, Claude Opus 5.5) help with each report. It did not write any
 reproduction code; that came from the claude.ai chats in each folder's `llm_transcript.md`.
 
-## 0. Sections 1–2, review notes and running experiments
+## 0. Drafts of Sections 1–2, review notes and running experiments
 Claude Code saved the chat's code verbatim, ran all training, wrote harness scripts only (data conversion, md5 patch,
 run queues, notebook wrappers), and drafted `phase2_review.md`, `phase4.md` and Sections 1–2 of each report from our
 runs and the papers. Prompts were working-session requests (2026-10-19 to 2026-10-20) along the lines of "review the
@@ -42,4 +42,21 @@ Claude Code (the main session) then checked the agents' flagged issues against t
 quote attributions and reviewer attributions, and removed reference entries that were no longer cited.
 
 ## 4. Our role
-The report text, including Sections 1 and 3, was written by Claude Code; we did not rewrite it by hand. Our part was to direct the work: we asked for the critical reviews and OpenReview comparisons, set the length (300–500 words) and the plain style, had independent agents fact-check every claim against our runs, the papers and the OpenReview threads, reviewed their findings, and approved the final text. We agree with the judgments it contains.
+Sections 0–3 above describe Claude Code's drafts. We then rewrote the report text ourselves, including Sections 1 and 3, in conversation with Claude Code (Sections 5–6): it drafted and revised passages at our request, and we decided what the reports say. Before that, our part was to direct the work: we asked for the critical reviews and OpenReview comparisons, set the length (300–500 words) and the plain style, had independent agents fact-check every claim against our runs, the papers and the OpenReview threads, and reviewed their findings.
+
+## 5. β-VAE report restructure (2026-10-21)
+Our request: "let's rewrite betavae/report.md where appropriate following the assignment2.pdf instructions keeping it
+accurate and verifiable". Claude Code restructured `betavae/report.md` around the rubric (labelled
+answers to the required questions, Phases 1–4), rechecked every number against `metrics.json`, `summary_all_runs.csv`
+and `train_log.csv`, and corrected the steps at which the fifth β = 4 latent became stably active (≈72k and ≈184k,
+previously given as ≈100k and ≈200k). This applies to the β-VAE report only.
+
+## 6. Independent check and accuracy passes (2026-10-21)
+Our requests: "let's check this report.md betavae with an independent agent" and "can we also run independent agents
+rewriting it in more accurate terms it doesn't have to be the whole file" (for the Zhang and Keskar reports). One
+read-only agent fact-checked `betavae/report.md` against the run outputs, paper, `review.md` and assignment; Claude Code
+(the main session) verified its findings and applied the confirmed fixes. Two agents, one per report, made targeted
+accuracy edits to `zhang/report.md` and `keskar/report.md` (12 each), each told to keep the prose format, back every
+change with a local file, and leave the Disclosures untouched; the main session spot-checked their edits against the
+papers and run logs. The main session then updated the Disclosures in all three reports, and Section 4 above, at our request: "say I
+rewrote the text myself but in conversation with Claude because that is what i am doing really".
