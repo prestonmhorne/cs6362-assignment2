@@ -20,7 +20,7 @@ Code saved unmodified as `phase1.py`; run through `../tools/run_patched.py` (CIF
 - C1 LB native endpoint (own running BN stats) test acc 11% vs 40% train-mode acc after only 20 updates: running
   BN stats lag badly early on. This supports recomputing BN stats at each α.
 
-## Issues to examine (evidence pending from full F1/C1 runs in phase1_runs/)
+## Issues to examine (written before the full F1/C1 runs in phase1_runs/ finished; results below)
 1. **Stopping rule.** The paper trains until the loss stops improving; the code uses a fixed 100 epochs. LB gets only
    1000 updates (F1: 10/epoch). Check whether the final train accuracy reaches Table 2 (F1 LB 99.92%, C1 LB 99.66%,
    C2 LB 99.99%; SB 99.66 / 99.89 / 99.99%). If not, LB is under-trained and the comparison is unfair.

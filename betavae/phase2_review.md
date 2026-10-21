@@ -29,8 +29,6 @@ Code saved unmodified as `phase1.py`. Transcript: `llm_transcript.md` (copy-butt
 Direction matches the paper's claim (stronger KL pressure → fewer active latents, worse reconstruction).
 The paper's Fig. 7A shows 5 informative latents for β=4 (x, y, scale, and two for rotation).
 
-## Pending: full Phase 1 run (phase1_runs/, 300k steps, β=4 and β=1, seed 0)
-
 ## Full Phase 1 run, β=4 seed 0 (300k steps, ~60 min while sharing the GPU)
 - 5 active latents (KL > 0.1), 5 collapsed to the prior (var 0.99, KL 0.00). This matches the count in the paper's
   Fig. 7A (x, y, scale, rotation ×2).

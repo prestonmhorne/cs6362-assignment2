@@ -36,8 +36,10 @@ Data goes in `data/`:
   saved as `data/dsprites.npz`.
 
 ## Reproducing the figures
-Open each notebook from its own folder and run all cells. By default (`RUN_TRAINING = False`) they redraw the figures
-from the saved logs in seconds. Set `RUN_TRAINING = True` to retrain. Rough times on an M4 Pro laptop:
+Open each notebook from its own folder and run all cells. By default (`RUN_TRAINING = False`), the Zhang and Keskar
+notebooks redraw the figures from the saved logs in seconds. The β-VAE notebook needs the six trained checkpoints
+(`betavae/phase1_runs/beta*_seed*/model.pt`, about 57 MB each), which are not in this repo because of their size, so
+without them it displays the saved `fig7.png` figures; to redraw them, retrain with `RUN_TRAINING = True`. Rough times on an M4 Pro laptop:
 - Zhang: ~4 h (Inception ≈ 34 min per 25k-step run).
 - Keskar: ~3 h (C2 ≈ 30 min per SB/LB pair).
 - β-VAE: ≈ 0.5–1.5 h per run, 6 runs.

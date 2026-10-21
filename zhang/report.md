@@ -51,7 +51,7 @@ $\sigma_i \in \{\pm1\}$ uniform, for binary $\pm1$-valued $h$), possibly helped 
 
 ## 2. Reproduction
 
-**LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript ([`llm_transcript.md`](llm_transcript.md)) instead. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/zhang (`phase1.py`, `phase3.py`, notebook `reproduce_figure1.ipynb`).
+**LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript ([`llm_transcript.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/zhang/llm_transcript.md)) instead. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/zhang (`phase1.py`, `phase3.py`, notebook `reproduce_figure1.ipynb`).
 
 *Original:*
 
@@ -91,7 +91,7 @@ Problems we found (Phase 2 review, with the MLP/AlexNet runs as evidence):
 2. Gaussian inputs were sampled in the *whitened* space. The paper says "matching mean and variance to the original image dataset", i.e. raw space.
 3. The convergence rule (rolling loss < 0.05) was the LLM's own choice and **failed for the MLP**: for $p \ge 0.2$ the loss never got below 0.05, so panel (b) couldn't be drawn for it. The cause is the per-epoch lr decay (0.04× by 25k steps). The MLP still reached 98.85% train accuracy on random labels (Table 1: 99.34%).
 
-**Phase 3** (`phase3_v1.py` then `phase3.py`, same chat). The final figure takes Inception from `phase3.py` runs, and MLP and AlexNet from the Phase 1 runs (`phase1_runs/`, symlinked). For the reused AlexNet/MLP label-corruption runs the training path is unchanged (smoke runs were bit-identical); Phase 3 changed only the Gaussian sampling and turned off early stopping for the panel-(a) runs.
+**Phase 3** (`phase3_v1.py` then `phase3.py`, same chat). The final figure takes Inception from `phase3.py` runs, and MLP and AlexNet from the Phase 1 runs (`phase1_runs/`, copied). For the reused AlexNet/MLP label-corruption runs the training path is unchanged (smoke runs were bit-identical); Phase 3 changed only the Gaussian sampling and turned off early stopping for the panel-(a) runs.
 - Change 1 (`phase3_v1.py`): early stopping off for panel (a); Gaussian inputs sampled in raw space; a τ sweep; a `panel_a` grid.
 - Change 2 (`phase3.py`): an accuracy-based convergence criterion, computed from the logged per-step accuracies. This needs no retraining and leaves the training code byte-identical.
 
@@ -103,7 +103,7 @@ With change 2, panel (b) resolves for every run at threshold 0.98.
 - Panel (a) random pixels vs Gaussian: the 200-step rolling-mean smoothing can't explain a ~5k-step shift, so we checked the logs. Our random-pixels Inception run has **34.9% test accuracy** (test error 65.1%), far above chance. Gaussian sits at chance (10.0%). A per-image pixel permutation destroys spatial structure but keeps each image's colour histogram, which likely still carries class information (we did not test a histogram-only baseline). So random pixels are a *partly learnable* task, with an immediate drop in loss and no ln 10 plateau, unlike Gaussian inputs. Why the paper's curve differs (it shows the two nearly coinciding) is untested; its random-pixel construction may differ in a detail the text doesn't state.
 
 ### Phase 4
-Phase 3 code (0e0629a) and results (674bce2) were committed before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](../commit_history.md) for the commit dates and a content-hash check that the code here is unchanged.
+Phase 3 code (0e0629a) and results (674bce2) were committed before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/commit_history.md) for the commit dates and a content-hash check that the code here is unchanged.
 
 The authors never released the paper's code; the first author says it belongs to Google. The first author's demo repo, https://github.com/pluskid/fitting-random-labels, was written later from scratch with a WideResNet and an MLP (comparison in `phase4.md`). It agrees with ours on how labels are corrupted (fixed seed, uniform over all classes) and fixed across epochs. It differs from the paper (and from us) in ways where we follow the paper:
 - weight decay 1e-4;
@@ -117,8 +117,8 @@ The authors never released the paper's code; the first author says it belongs to
 - Web search was used **once**, after all code was written, to answer "can I share this chat even though it is incognito?" (Anthropic's support docs). No code was retrieved. The search toggle had not been turned off.
 - Two details came from the LLM's background knowledge rather than the paper: TF `per_image_standardization`'s $1/\sqrt{N}$ std floor, and the LRN hyperparameters (size 9, α = 0.001/9, β = 0.75, k = 1).
 - CIFAR-10 came from the Hugging Face mirror (the Toronto server was too slow). `../tools/run_patched.py` disables only torchvision's integrity check and download. The LLM's code is unmodified.
-- An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training, and drafted the review notes (`phase2_review.md`, `phase4.md`) and this report (prompts: `../claude_code_prompts.md`). It wrote only harness scripts (CIFAR-10 conversion, the md5 patch, run queues, the notebook wrapper), none of the model, training or plotting code.
-- The critical review and OpenReview comparison (Section 3) were drafted and condensed with Claude Code (an IDE assistant) from our reproduction results and the saved OpenReview reviews; the prompts are in `../claude_code_prompts.md`.
+- An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training, and wrote the review notes (`phase2_review.md`, `phase4.md`) and the text of this report, which we directed, fact-checked and approved but did not rewrite by hand (prompts: [`claude_code_prompts.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/claude_code_prompts.md)). It wrote only harness scripts (CIFAR-10 conversion, the md5 patch, run queues, the notebook wrapper), none of the model, training or plotting code.
+- The critical review and OpenReview comparison (Section 3) were written and condensed by Claude Code (an IDE assistant) from our reproduction results and the saved OpenReview reviews; the prompts are in [`claude_code_prompts.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/claude_code_prompts.md).
 
 ## 3. Critical review
 

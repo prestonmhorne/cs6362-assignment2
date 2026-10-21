@@ -49,7 +49,7 @@ $\phi_{x,f}(\epsilon) = \frac{\max_{y\in\mathcal{C}_\epsilon} f(x+y) - f(x)}{1+f
 
 ## 2. Reproduction
 
-**LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript instead: [`llm_transcript.md`](llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/keskar (`phase1.py`, `phase3.py`, notebook `reproduce_figure3.ipynb`).
+**LLM:** Claude Sonnet 5.5 (Medium effort), in the claude.ai chat interface. **Conversation:** the chat ran in Claude's incognito mode, which can't be shared. With the instructor's approval (2026-10-19) we submit the full transcript instead: [`llm_transcript.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/keskar/llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/keskar (`phase1.py`, `phase3.py`, notebook `reproduce_figure3.ipynb`).
 
 *Original (paper Fig. 3: F1, F2, C1, C2):*
 
@@ -100,7 +100,7 @@ Results:
 **Mistake in our own review.** In Phase 3 we wrote that the paper's curves are "smooth and monotone" between α = 0 and 1, and that our bump at α≈0.85 was a mismatch. At higher zoom the paper's C1, C2 (and F2, C3, C4) panels show the same bump. We corrected this in Phase 4.
 
 ### Phase 4: the authors' code (https://github.com/keskarnitish/large-batch-training)
-Phase 3 code and results were committed (by 674bce2) before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](../commit_history.md). Full comparison: `phase4.md`.
+Phase 3 code and results were committed (by 674bce2) before Phase 4 (63069f7). These hashes refer to our private working repo; see [`commit_history.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/commit_history.md). Full comparison: `phase4.md`.
 - **Confirms our choices:** shared initialization (`x0.h5`); ADAM with default lr; SB 256 / LB 5000; /255 scaling and no augmentation; $\alpha \in [-1, 2]$.
 - **C1:** exactly our Phase 3 `alexnet` variant, i.e. the LLM's corrected reading.
 - **BatchNorm `mode=2`** (batch statistics at test time) ≈ our recompute.
@@ -143,8 +143,8 @@ So the BN choice decides whether the figure looks like the paper's. Recomputing 
 - The Phase 1 prompt asked the LLM not to search the web or use existing implementations. The transcript shows no web search or tool use.
 - LLM prior knowledge: the C1 reading in Phase 3 was supported by the LLM's recollection of a CIFAR-10 reference network with 384/192 FC layers (flagged by the LLM itself as memory, not evidence).
 - CIFAR-10 came from the Hugging Face mirror (the Toronto server was too slow). `../tools/run_patched.py` disables only torchvision's md5 check and download. The LLM's code is unmodified.
-- An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training and the Phase 4 diagnostic, and drafted the review notes (`phase2_review.md`, `phase4.md`) and this report (prompts: `../claude_code_prompts.md`). It wrote only harness scripts (CIFAR-10 conversion, the md5 patch, run queues, the ablation's run script, the notebook wrapper), none of the model, training, interpolation or plotting code. The ablation used an option (`--bn_mode interp`) already present in the LLM's code.
-- The critical review and OpenReview comparison (Section 3) were drafted and condensed with Claude Code (an IDE assistant) from our reproduction results and the saved OpenReview reviews; the prompts are in `../claude_code_prompts.md`.
+- An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training and the Phase 4 diagnostic, and wrote the review notes (`phase2_review.md`, `phase4.md`) and the text of this report, which we directed, fact-checked and approved but did not rewrite by hand (prompts: [`claude_code_prompts.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/claude_code_prompts.md)). It wrote only harness scripts (CIFAR-10 conversion, the md5 patch, run queues, the ablation's run script, the notebook wrapper), none of the model, training, interpolation or plotting code. The ablation used an option (`--bn_mode interp`) already present in the LLM's code.
+- The critical review and OpenReview comparison (Section 3) were written and condensed by Claude Code (an IDE assistant) from our reproduction results and the saved OpenReview reviews; the prompts are in [`claude_code_prompts.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/claude_code_prompts.md).
 
 ## 3. Critical review
 

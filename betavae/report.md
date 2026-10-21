@@ -58,7 +58,7 @@ Row 1 shows the mean activation $\mu_j$ as a 32×32 map over (pos x, pos y), ave
 
 ### LLM, conversation and code
 
-**LLM:** Claude Sonnet 5.5 (Medium effort), claude.ai chat interface. **Conversation:** this chat ran in Claude's incognito mode, which can't be shared. Following the instructor's approval (2026-10-19) of markdown transcripts for incognito chats, we submit the full transcript instead: [`llm_transcript.md`](llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/betavae (`phase1.py`, notebook `reproduce_figure7.ipynb`).
+**LLM:** Claude Sonnet 5.5 (Medium effort), claude.ai chat interface. **Conversation:** this chat ran in Claude's incognito mode, which can't be shared. Following the instructor's approval (2026-10-19) of markdown transcripts for incognito chats, we submit the full transcript instead: [`llm_transcript.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/betavae/llm_transcript.md), copied message by message. **Code:** https://github.com/prestonmhorne/cs6362-assignment2/tree/main/betavae (`phase1.py`, notebook `reproduce_figure7.ipynb`).
 
 ### Original and reproduced figures
 
@@ -127,7 +127,7 @@ We trained seeds 1 and 2 for both β with the **unchanged** Phase 1 code (`--see
 
 We found no code release from the authors; DeepMind's `dsprites-dataset` repo has only the dataset and a loading notebook. So there was nothing to compare against and nothing was changed (`phase4.md`). We checked our dataset handling against the official repo: same file, keys and factor sizes (1, 3, 6, 40, 32, 32).
 
-`phase4.md` was written and committed (63069f7) before the Phase 3 seed results were committed (1eb1dd4); these hashes refer to our private working repo (see [`commit_history.md`](../commit_history.md)). That ordering is harmless here: no authors' code exists, and Phase 3 reuses the committed Phase 1 code unchanged (`phase1.py` is identical in both commits).
+`phase4.md` was written and committed (63069f7) before the Phase 3 seed results were committed (1eb1dd4); these hashes refer to our private working repo (see [`commit_history.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/commit_history.md)). That ordering is harmless here: no authors' code exists, and Phase 3 reuses the committed Phase 1 code unchanged (`phase1.py` is identical in both commits).
 
 ### Does the evidence support the claim? Would larger β help?
 
@@ -149,7 +149,7 @@ The paper's Sections 4.1–4.2 and Fig. 6 (right) show the trade-off. Increasing
 
 The Phase 1 prompt asked the LLM not to search the web or use existing implementations. Web search was switched off in this chat, and the transcript shows no web search or tool use.
 
-An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training, and drafted the review notes (`phase2_review.md`, `phase4.md`) and this report (prompts: `../claude_code_prompts.md`). It wrote only harness scripts (the seed run queue, the notebook wrapper), none of the model, training, evaluation or plotting code. The critical review and OpenReview comparison (Section 3) were drafted and condensed with Claude Code from our reproduction results and the saved OpenReview reviews; the prompts are in the same file.
+An IDE assistant (Claude Code, Claude Opus 5.5) saved the chat's code verbatim, ran training, and wrote the review notes (`phase2_review.md`, `phase4.md`) and the text of this report, which we directed, fact-checked and approved but did not rewrite by hand (prompts: [`claude_code_prompts.md`](https://github.com/prestonmhorne/cs6362-assignment2/blob/main/claude_code_prompts.md)). It wrote only harness scripts (the seed run queue, the notebook wrapper), none of the model, training, evaluation or plotting code. The critical review and OpenReview comparison (Section 3) were written and condensed by Claude Code from our reproduction results and the saved OpenReview reviews; the prompts are in the same file.
 
 ## 3. Critical review
 
